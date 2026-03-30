@@ -220,7 +220,7 @@ section {
   font-family: var(--font-display);
   font-weight: 800;
   letter-spacing: -0.04em;
-  line-height: 1;
+  line-height: 1.25;
   color: var(--text-1);
 }
 .h-xl {

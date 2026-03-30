@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0",
+    "@biomejs/cli-win32-x64": "^2.4.9",
     "@tailwindcss/oxide-win32-x64-msvc": "^4.2.2",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
