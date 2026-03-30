@@ -64,20 +64,6 @@ export default function Navbar(): React.JSX.Element {
             {theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}
           </button>
 
-          <Link
-            href="#pricing"
-            className="nav-desktop-link"
-            style={{
-              fontSize: 14,
-              fontWeight: 500,
-              color: "var(--text-2)",
-              padding: "6px 10px",
-              whiteSpace: "nowrap",
-            }}
-          >
-            {t("nav.signin", l)}
-          </Link>
-
           <DemoToastLink
             className="btn btn-primary nav-desktop-cta"
             style={{ padding: "9px 20px", fontSize: 14 }}

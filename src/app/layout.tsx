@@ -10,7 +10,7 @@
  */
 
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, DM_Sans, DM_Mono, Cairo } from "next/font/google";
+import { Bricolage_Grotesque, Cairo } from "next/font/google";
 
 import { ToastProvider } from "@/components/providers/toast-provider";
 import { ThemeProvider } from "@/components/providers/theme-provider";
@@ -21,18 +21,6 @@ const bricolage = Bricolage_Grotesque({
   variable: "--font-bricolage",
   subsets: ["latin"],
   weight: ["300", "400", "500", "700", "800"],
-  display: "swap",
-});
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
-  subsets: ["latin"],
-  weight: ["300", "400", "500"],
-  display: "swap",
-});
-const dmMono = DM_Mono({
-  variable: "--font-dm-mono",
-  subsets: ["latin"],
-  weight: ["400", "500"],
   display: "swap",
 });
 const cairo = Cairo({
@@ -64,7 +52,7 @@ export default function RootLayout({
       dir="ltr"
       data-theme="dark"
       suppressHydrationWarning
-      className={`${bricolage.variable} ${dmSans.variable} ${dmMono.variable} ${cairo.variable}`}
+      className={`${bricolage.variable} ${cairo.variable}`}
     >
       <body suppressHydrationWarning>
         <div id="cursor-dot" aria-hidden="true" />
