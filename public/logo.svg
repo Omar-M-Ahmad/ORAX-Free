@@ -1,0 +1,8 @@
+<svg width="120" height="40" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+  <!-- Icon -->
+  <rect x="0" y="4" width="32" height="32" rx="8" fill="#6366f1"/>
+  <path d="M20 8L10 21h8l-1 11L27 19h-8l1-11z" fill="white"/>
+  <!-- Wordmark -->
+  <text x="40" y="27" fill="#ffffff" font-family="'Bricolage Grotesque', system-ui, sans-serif"
+        font-size="20" font-weight="800" letter-spacing="-0.8">ORAX</text>
+</svg>
