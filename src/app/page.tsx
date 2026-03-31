@@ -12,7 +12,6 @@ import LogosTicker from "@/components/sections/logos-ticker";
 import FeaturesBento from "@/components/sections/features-bento";
 import HowItWorks from "@/components/sections/how-it-works";
 import Pricing from "@/components/sections/pricing";
-import Testimonials from "@/components/sections/testimonials";
 import FAQ from "@/components/sections/faq";
 import FinalCTA from "@/components/sections/final-cta";
 import Footer from "@/components/sections/footer";
@@ -27,7 +26,6 @@ export default function HomePage(): React.JSX.Element {
         <LogosTicker />
         <FeaturesBento />
         <HowItWorks />
-        <Testimonials />
         <Pricing />
         <FAQ />
         <FinalCTA />

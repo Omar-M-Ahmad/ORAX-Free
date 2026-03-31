@@ -15,11 +15,27 @@ This version is intended for developers who want a beautiful bilingual landing p
 
 ---
 
+## 🚀 Live Demo
+
+👉 https://orax-free.vercel.app/
+
+---
+
+## 💡 About ORAX-Free
+
+ORAX-Free is the public landing page version of ORAX.
+
+It is designed to showcase the UI system, RTL support, and overall structure — without backend complexity.
+
+If you need authentication, payments, or full SaaS features, check the paid editions.
+
+---
+
 ## Features
 
 - Next.js 16
 - TypeScript
-- Premium SaaS landing page
+- Modern Next.js SaaS Landing Template
 - Dark / Light mode
 - Arabic / English translations
 - RTL / LTR support
@@ -31,36 +47,24 @@ This version is intended for developers who want a beautiful bilingual landing p
 
 ---
 
-## Included in ORAX-Free
+## ✅ Included in ORAX-Free
 
-- Public landing page
-- Navigation bar
-- Hero section
-- Features section
-- Pricing section
-- FAQ section
-- CTA section
-- Footer
-- Theme provider
-- Toast provider
-- Translation system
-- Shared UI helpers
+- Landing page (Hero, Features, Pricing, FAQ)
+- Dark / Light mode
+- Arabic / English support (RTL ready)
+- Responsive layout
+- Toast system
 - Custom 404 page
+- Design system tokens
 
----
+## ❌ Not Included
 
-## Not Included in ORAX-Free
-
-- Authentication
-- OAuth
+- Authentication system
 - Dashboard
-- Billing system
-- API routes
+- Payments integration
 - Database
 - Email system
-- Protected routes
-- User settings
-- Password reset flow
+- API routes
 
 ---
 
@@ -166,15 +170,15 @@ ORAX-Free is suitable for:
 
 ---
 
-## Upgrade Path
+## 🧭 Upgrade Path
 
-If you need more than the public landing page, upgrade to a higher ORAX edition:
+ORAX is structured into 3 editions:
 
-- **Starter** → expanded public structure and more reusable sections
+- Free → Landing UI only
+- Starter → Auth + Dashboard
+- Complete → Payments + Full SaaS system
 
-- **Pro** → authentication, dashboard, billing UI, database foundation
-
-- **Complete** → payments, subscriptions, webhooks, production-ready SaaS flows
+Coming soon.
 
 ---
 
