@@ -7,11 +7,11 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Moon, Sun, Menu, X } from "lucide-react";
+import { Moon, Sun, Menu, X, ExternalLink } from "lucide-react";
 
 import { useTheme } from "@/components/providers/theme-provider";
 import { t } from "@/i18n";
-import DemoToastLink from "@/components/shared/demo-toast-link";
+import { siteConfig } from "@/config/site";
 
 const navLinks = [
   { tKey: "nav.features" as const, href: "#features" },
@@ -39,7 +39,7 @@ export default function Navbar(): React.JSX.Element {
       aria-label="Main navigation"
     >
       <div className="nav-inner">
-        <Link href="/" className="nav-logo">
+        <Link href="/" className="nav-logo" onClick={() => setMenuOpen(false)}>
           <div className="nav-logo-dot" aria-hidden="true" />
           ORAX
         </Link>
@@ -64,12 +64,16 @@ export default function Navbar(): React.JSX.Element {
             {theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}
           </button>
 
-          <DemoToastLink
+          <Link
+            href={siteConfig.links.buy}
+            target="_blank"
+            rel="noreferrer"
             className="btn btn-primary nav-desktop-cta"
             style={{ padding: "9px 20px", fontSize: 14 }}
+            aria-label="Buy ORAX"
           >
             {t("nav.cta", l)}
-          </DemoToastLink>
+          </Link>
 
           <button
             className="nav-toggle-btn hamburger-btn"
@@ -125,12 +129,17 @@ export default function Navbar(): React.JSX.Element {
             </button>
           </div>
 
-          <DemoToastLink
+          <Link
+            href={siteConfig.links.buy}
+            target="_blank"
+            rel="noreferrer"
             className="btn btn-glow"
-            style={{ marginTop: 8, justifyContent: "center" }}
+            style={{ marginTop: 8, justifyContent: "center", gap: 8 }}
+            onClick={() => setMenuOpen(false)}
           >
             {t("nav.cta", l)}
-          </DemoToastLink>
+            <ExternalLink size={14} />
+          </Link>
         </div>
       )}
 
@@ -140,7 +149,6 @@ export default function Navbar(): React.JSX.Element {
         @media (max-width: 768px) {
           .hamburger-btn { display: flex !important; }
           .nav-links { display: none !important; }
-          .nav-desktop-link,
           .nav-desktop-cta { display: none !important; }
         }
       `}</style>

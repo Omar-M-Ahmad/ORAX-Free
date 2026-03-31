@@ -1,8 +1,10 @@
 /**
  * @file components/sections/logos-ticker.tsx
- * @description Infinite logo ticker. Label from @/lib/i18n.
+ * @description Infinite technology ticker for ORAX-Free.
  */
+
 "use client";
+
 import { useTheme } from "@/components/providers/theme-provider";
 import { t } from "@/i18n";
 
@@ -17,35 +19,27 @@ const logos = [
     d: "M12 6C9.6 6 8.1 7.2 7.5 9.6c.9-1.2 1.95-1.65 3.15-1.35.685.17 1.174.664 1.715 1.209C13.24 10.39 14.4 11.6 17 11.6c2.4 0 3.9-1.2 4.5-3.6-.9 1.2-1.95 1.65-3.15 1.35-.685-.17-1.174-.664-1.715-1.209C15.76 7.21 14.6 6 12 6zm-4.5 6C5.1 12 3.6 13.2 3 15.6c.9-1.2 1.95-1.65 3.15-1.35.685.17 1.174.664 1.715 1.209C8.74 16.39 9.9 17.6 12.5 17.6c2.4 0 3.9-1.2 4.5-3.6-.9 1.2-1.95 1.65-3.15 1.35-.685-.17-1.174-.664-1.715-1.209C11.26 13.21 10.1 12 7.5 12z",
   },
   { name: "Vercel", d: "M12 2L2 19.5h20L12 2z" },
-  { name: "Supabase", d: "M12 2l10 6.5v7L12 22 2 15.5v-7z" },
   {
-    name: "Drizzle",
+    name: "Biome",
     path: (
       <path
-        d="M3 7h18M3 12h18M3 17h18"
+        d="M12 3l7 4v10l-7 4-7-4V7l7-4z"
+        fill="none"
         stroke="currentColor"
         strokeWidth="2"
-        strokeLinecap="round"
-        fill="none"
       />
     ),
   },
   {
-    name: "Resend",
-    d: "M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z",
-  },
-  {
-    name: "Auth.js",
+    name: "GSAP",
     path: (
-      <>
-        <rect x="3" y="11" width="18" height="11" rx="2" />
-        <path
-          d="M7 11V7a5 5 0 0 1 10 0v4"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-        />
-      </>
+      <path
+        d="M5 12c0-4 3-7 7-7 3.5 0 6.2 2.1 6.9 5.2M19 12c0 4-3 7-7 7-3.5 0-6.2-2.1-6.9-5.2"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
     ),
   },
 ];
@@ -55,8 +49,9 @@ export default function LogosTicker(): React.JSX.Element {
   const l = mounted ? locale : "en";
 
   return (
-    <div id="logos" aria-label="Technology partners">
+    <div id="logos" aria-label="Technology stack">
       <p className="ticker-label">{t("logos.label", l)}</p>
+
       <div style={{ position: "relative", overflow: "hidden" }}>
         <div
           aria-hidden="true"
@@ -82,6 +77,7 @@ export default function LogosTicker(): React.JSX.Element {
             pointerEvents: "none",
           }}
         />
+
         <div
           className="ticker-track"
           onMouseEnter={(e) => {

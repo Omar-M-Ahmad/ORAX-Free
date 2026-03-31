@@ -5,7 +5,7 @@
 
 export const siteConfig = {
   name: "ORAX",
-  description: "Premium Next.js SaaS Starter Kit with RTL support.",
+  description: "Modern Next.js SaaS landing template with RTL support.",
   url: "http://localhost:3000",
   author: "Omar Mahmoud Ahmad",
   keywords: ["Next.js", "SaaS", "Starter Kit", "RTL", "Arabic", "TypeScript"],
@@ -13,5 +13,8 @@ export const siteConfig = {
     starter: 39,
     pro: 99,
     complete: 179,
+  },
+  links: {
+    buy: "https://your-payhip-or-gumroad-link",
   },
 } as const;
