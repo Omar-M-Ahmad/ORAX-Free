@@ -19,18 +19,29 @@
   "nav.langLabel": "EN",
   "nav.langAriaEn": "Switch to English",
 
-  "hero.badge": "Next.js 16 · TypeScript · Tailwind v4 · دعم RTL أصيل",
-  "hero.line1": "ابنِ تطبيقك",
-  "hero.line2": "الذي يبيع.",
-  "hero.line3": "أطلق أسرع.",
-  "hero.sub": "الكيت الوحيد الجاهز للإنتاج مع دعم RTL أصيل، وانيميشن سينمائي، ونشر بدون إعداد. من التثبيت إلى الإنتاج في دقائق.",
-  "hero.cta1": "احصل على الكيت — $179",
-  "hero.cta2": "شاهد العرض",
+  "hero.badge": "Next.js · TypeScript · Tailwind CSS · عربي + English",
+  "hero.line1": "ابنِ SaaS",
+  "hero.line2": "على نظام حقيقي.",
+  "hero.line3": "ليس مجرد Demo.",
+  "hero.sub": "ORAX هو نظام SaaS Starter حديث مبني لمنتجات حقيقية، مع دعم RTL من الدرجة الأولى، وClean Architecture، وأساس ثنائي اللغة من البداية.",
+  "hero.cta1": "استكشف ORAX Free",
+  "hero.cta2": "شاهد ما الذي يميّزه",
 
-  "stats.lighthouse": "درجة Lighthouse",
-  "stats.sections": "قسم كامل",
-  "stats.rtl": "دعم RTL + LTR",
-  "stats.setup": "وقت الإعداد",
+  "hero.stats.rtl.value": "2",
+  "hero.stats.rtl.suffix": "x",
+  "hero.stats.rtl.label": "جاهز لـ RTL + LTR",
+
+  "hero.stats.i18n.value": "2",
+  "hero.stats.i18n.suffix": "",
+  "hero.stats.i18n.label": "عربي + English",
+
+  "hero.stats.arch.value": "1",
+  "hero.stats.arch.suffix": "",
+  "hero.stats.arch.label": "أساس نظيف للنظام",
+
+  "hero.stats.editions.value": "2",
+  "hero.stats.editions.suffix": "",
+  "hero.stats.editions.label": "اتجاه Free + Pro",
 
   "logos.label": "مبني بالأدوات التي تعرفها بالفعل",
 

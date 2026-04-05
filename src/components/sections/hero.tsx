@@ -1,67 +1,69 @@
 /**
  * @file components/sections/hero.tsx
- * @description ORAX Hero — full-viewport with GSAP entrance,
- * particle canvas, stats counters (0 → target), and RTL support.
+ * @description ORAX landing hero section.
+ * All user-facing text comes from i18n messages.
  */
 
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { useTheme } from "@/components/providers/theme-provider";
+import { t } from "@/i18n";
+
 import DemoToastLink from "../shared/demo-toast-link";
 
-const statsData = [
-  {
-    value: 95,
-    suffix: "+",
-    labelEn: "Lighthouse Score",
-    labelAr: "درجة Lighthouse",
-  },
-  { value: 12, suffix: "", labelEn: "Page Sections", labelAr: "قسم كامل" },
-  {
-    value: 2,
-    suffix: "x",
-    labelEn: "RTL + LTR Ready",
-    labelAr: "دعم RTL + LTR",
-  },
-  { value: 5, suffix: "m", labelEn: "Setup Time", labelAr: "وقت الإعداد" },
-];
-
-const content = {
-  en: {
-    badge: "Next.js 16 · TypeScript · Tailwind v4 · RTL Native",
-    line1: "Build SaaS",
-    line2: "That converts.",
-    line3: "Ship faster.",
-    sub: "The only SaaS starter kit with native RTL support, cinematic animations, and zero-config deployment. From install to live in minutes.",
-    cta1: "Get the Kit — $179",
-    cta2: "Watch Demo",
-  },
-  ar: {
-    badge: "Next.js 16 · TypeScript · Tailwind v4 · دعم RTL أصيل",
-    line1: "ابنِ تطبيقك",
-    line2: "الذي يبيع.",
-    line3: "أطلق أسرع.",
-    sub: "الكيت الوحيد الجاهز للإنتاج مع دعم RTL أصيل، وانيميشن سينمائي، ونشر بدون إعداد. من التثبيت إلى الإنتاج في دقائق.",
-    cta1: "احصل على الكيت — $179",
-    cta2: "شاهد العرض",
-  },
+type HeroStat = {
+  id: string;
+  value: number;
+  suffix: string;
+  label: string;
 };
 
 export default function HeroSection(): React.JSX.Element {
   const { locale } = useTheme();
-  const t = content[locale];
-  const isAr = locale === "ar";
+  const l = locale;
+  const isAr = l === "ar";
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  /* ── Particle Canvas ──────────────────────────────────── */
+  const stats = useMemo<HeroStat[]>(
+    () => [
+      {
+        id: "rtl",
+        value: Number(t("hero.stats.rtl.value", l)),
+        suffix: t("hero.stats.rtl.suffix", l),
+        label: t("hero.stats.rtl.label", l),
+      },
+      {
+        id: "i18n",
+        value: Number(t("hero.stats.i18n.value", l)),
+        suffix: t("hero.stats.i18n.suffix", l),
+        label: t("hero.stats.i18n.label", l),
+      },
+      {
+        id: "arch",
+        value: Number(t("hero.stats.arch.value", l)),
+        suffix: t("hero.stats.arch.suffix", l),
+        label: t("hero.stats.arch.label", l),
+      },
+      {
+        id: "editions",
+        value: Number(t("hero.stats.editions.value", l)),
+        suffix: t("hero.stats.editions.suffix", l),
+        label: t("hero.stats.editions.label", l),
+      },
+    ],
+    [l],
+  );
+
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
+
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    let animId: number;
+    let animationFrameId = 0;
+
     const particles: Array<{
       x: number;
       y: number;
@@ -71,149 +73,167 @@ export default function HeroSection(): React.JSX.Element {
       opacity: number;
     }> = [];
 
-    const resize = (): void => {
+    const resizeCanvas = (): void => {
       canvas.width = canvas.offsetWidth;
       canvas.height = canvas.offsetHeight;
     };
-    resize();
-    window.addEventListener("resize", resize);
 
-    for (let i = 0; i < 60; i++) {
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    for (let i = 0; i < 40; i += 1) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.4,
-        vy: (Math.random() - 0.5) * 0.4,
+        vx: (Math.random() - 0.5) * 0.35,
+        vy: (Math.random() - 0.5) * 0.35,
         size: Math.random() * 1.5 + 0.5,
-        opacity: Math.random() * 0.4 + 0.1,
+        opacity: Math.random() * 0.35 + 0.08,
       });
     }
 
     const draw = (): void => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (const p of particles) {
-        p.x += p.vx;
-        p.y += p.vy;
-        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+      for (const particle of particles) {
+        particle.x += particle.vx;
+        particle.y += particle.vy;
+
+        if (particle.x < 0 || particle.x > canvas.width) {
+          particle.vx *= -1;
+        }
+
+        if (particle.y < 0 || particle.y > canvas.height) {
+          particle.vy *= -1;
+        }
+
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(99,102,241,${p.opacity})`;
+        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(99,102,241,${particle.opacity})`;
         ctx.fill();
       }
-      animId = requestAnimationFrame(draw);
+
+      animationFrameId = window.requestAnimationFrame(draw);
     };
+
     draw();
+
     return () => {
-      cancelAnimationFrame(animId);
-      window.removeEventListener("resize", resize);
+      window.cancelAnimationFrame(animationFrameId);
+      window.removeEventListener("resize", resizeCanvas);
     };
   }, []);
 
-  /* ── GSAP Entrance ────────────────────────────────────── */
   useEffect(() => {
     let killed = false;
 
-    const run = async (): Promise<void> => {
+    const runAnimation = async (): Promise<void> => {
       const gsap = (await import("gsap")).default;
       if (killed) return;
 
-      // Reset initial states
       gsap.set(".hero-badge", { opacity: 0, y: 20 });
       gsap.set(".hero-title .line-inner", { opacity: 0, y: "100%" });
       gsap.set(".hero-sub", { opacity: 0, y: 20 });
       gsap.set(".hero-cta", { opacity: 0, y: 20 });
       gsap.set(".hero-stats", { opacity: 0 });
-      gsap.set(".hero-scroll", { opacity: 0 });
 
-      const tl = gsap.timeline({ delay: 0.15 });
+      const timeline = gsap.timeline({ delay: 0.1 });
 
-      tl.to(".hero-badge", {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        ease: "power3.out",
-      })
+      timeline
+        .to(".hero-badge", {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: "power3.out",
+        })
         .to(
           ".hero-title .line-inner",
           {
             opacity: 1,
             y: 0,
-            duration: 0.85,
+            duration: 0.8,
             ease: "power4.out",
             stagger: 0.1,
           },
-          "-=0.3",
+          "-=0.25",
         )
         .to(
           ".hero-sub",
-          { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" },
-          "-=0.4",
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "power3.out",
+          },
+          "-=0.35",
         )
         .to(
           ".hero-cta",
-          { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" },
-          "-=0.4",
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "power3.out",
+          },
+          "-=0.35",
         )
         .to(
           ".hero-stats",
-          { opacity: 1, duration: 0.7, ease: "power2.out" },
-          "-=0.3",
-        )
-        .to(".hero-scroll", { opacity: 1, duration: 0.4 }, "-=0.2");
+          {
+            opacity: 1,
+            duration: 0.6,
+            ease: "power2.out",
+          },
+          "-=0.25",
+        );
 
-      // ✅ Counter: counts UP from 0 → target
-      tl.add(() => {
+      timeline.add(() => {
         document
           .querySelectorAll<HTMLElement>(".stat-counter")
           .forEach((el) => {
-            const target = parseInt(el.dataset.target ?? "0", 10);
-            const proxy = { val: 0 };
+            const target = Number(el.dataset.target ?? "0");
+            const proxy = { value: 0 };
+
             gsap.to(proxy, {
-              val: target,
-              duration: 1.8,
+              value: target,
+              duration: 1.4,
               ease: "power2.out",
               onUpdate() {
-                el.textContent = Math.round(proxy.val).toString();
+                el.textContent = Math.round(proxy.value).toString();
               },
             });
           });
-      }, "-=0.4");
+      }, "-=0.2");
     };
 
-    run();
+    void runAnimation();
+
     return () => {
       killed = true;
     };
-  }, [locale]);
+  }, [l]);
 
-  /* ── Render ───────────────────────────────────────────── */
   return (
     <section id="hero" aria-labelledby="hero-heading">
-      {/* Background */}
       <div className="hero-bg" aria-hidden="true">
         <div className="hero-gradient-1" />
         <div className="hero-gradient-2" />
         <div className="hero-grid" />
       </div>
+
       <canvas ref={canvasRef} id="hero-canvas" aria-hidden="true" />
 
-      {/* Content */}
       <div className="hero-content">
-        {/* Badge */}
         <div className="hero-badge">
           <span className="hero-badge-dot" aria-hidden="true" />
-          <span>{t.badge}</span>
+          <span>{t("hero.badge", l)}</span>
         </div>
 
-        {/* Title — overflow:hidden per line clips the slide-up */}
         <h1
           className="hero-title"
           id="hero-heading"
           style={{
-            /* Arabic needs more line-height for diacritics */
-            lineHeight: isAr ? 1.2 : 1.0,
-            /* Extra bottom padding so Arabic descenders don't clip */
+            lineHeight: isAr ? 1.2 : 1.02,
             paddingBottom: isAr ? "0.15em" : 0,
           }}
         >
@@ -222,85 +242,55 @@ export default function HeroSection(): React.JSX.Element {
               className="line-inner"
               style={{ paddingBottom: isAr ? "0.1em" : 0 }}
             >
-              {t.line1}
+              {t("hero.line1", l)}
             </span>
           </span>
+
           <span className="line line-2">
             <span
               className="line-inner"
               style={{ paddingBottom: isAr ? "0.1em" : 0 }}
             >
-              {t.line2}
+              {t("hero.line2", l)}
             </span>
           </span>
+
           <span className="line line-3">
             <span
               className="line-inner"
               style={{ paddingBottom: isAr ? "0.1em" : 0 }}
             >
-              {t.line3}
+              {t("hero.line3", l)}
             </span>
           </span>
         </h1>
 
-        {/* Sub */}
-        <p className="hero-sub">{t.sub}</p>
+        <p className="hero-sub">{t("hero.sub", l)}</p>
 
-        {/* CTAs */}
         <div className="hero-cta">
-          <a href="#pricing" className="btn btn-glow btn-lg">
-            <svg
-              width="15"
-              height="15"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              aria-hidden="true"
-            >
-              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-            </svg>
-            {t.cta1}
+          <a href="#features" className="btn btn-glow btn-lg">
+            {t("hero.cta1", l)}
           </a>
+
           <DemoToastLink className="btn btn-ghost btn-lg">
-            <svg
-              width="15"
-              height="15"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path d="M8 5v14l11-7z" />
-            </svg>
-            {t.cta2}
+            {t("hero.cta2", l)}
           </DemoToastLink>
         </div>
 
-        {/* Stats */}
         <div className="hero-stats" role="list">
-          {statsData.map((stat) => (
-            <div
-              key={stat.labelEn}
-              role="listitem"
-              style={{ textAlign: "center" }}
-            >
+          {stats.map((stat) => (
+            <div key={stat.id} role="listitem" style={{ textAlign: "center" }}>
               <div className="hero-stat-val">
                 <span className="stat-counter" data-target={stat.value}>
                   0
                 </span>
                 {stat.suffix}
               </div>
-              <div className="hero-stat-label">
-                {isAr ? stat.labelAr : stat.labelEn}
-              </div>
+
+              <div className="hero-stat-label">{stat.label}</div>
             </div>
           ))}
         </div>
-      </div>
-
-      {/* Scroll line */}
-      <div className="hero-scroll" aria-hidden="true">
-        <div className="hero-scroll-line" />
       </div>
     </section>
   );

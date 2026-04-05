@@ -19,18 +19,29 @@
   "nav.langLabel": "عربي",
   "nav.langAriaEn": "Switch to Arabic",
 
-  "hero.badge": "Next.js 16 · TypeScript · Tailwind v4 · RTL Native",
+  "hero.badge": "Next.js · TypeScript · Tailwind CSS · Arabic + English",
   "hero.line1": "Build SaaS",
-  "hero.line2": "That converts.",
-  "hero.line3": "Ship faster.",
-  "hero.sub": "The only SaaS starter kit with native RTL support, cinematic animations, and zero-config deployment. From install to live in minutes.",
-  "hero.cta1": "Get the Kit — $179",
-  "hero.cta2": "Watch Demo",
+  "hero.line2": "on a real system.",
+  "hero.line3": "Not a demo.",
+  "hero.sub": "ORAX is a modern SaaS starter system built for real products, with first-class RTL support, clean architecture, and a bilingual foundation from day one.",
+  "hero.cta1": "Explore ORAX Free",
+  "hero.cta2": "See what makes it different",
 
-  "stats.lighthouse": "Lighthouse Score",
-  "stats.sections": "Page Sections",
-  "stats.rtl": "RTL + LTR Ready",
-  "stats.setup": "Setup Time",
+  "hero.stats.rtl.value": "2",
+  "hero.stats.rtl.suffix": "x",
+  "hero.stats.rtl.label": "RTL + LTR ready",
+
+  "hero.stats.i18n.value": "2",
+  "hero.stats.i18n.suffix": "",
+  "hero.stats.i18n.label": "Arabic + English",
+
+  "hero.stats.arch.value": "1",
+  "hero.stats.arch.suffix": "",
+  "hero.stats.arch.label": "Clean system foundation",
+
+  "hero.stats.editions.value": "2",
+  "hero.stats.editions.suffix": "",
+  "hero.stats.editions.label": "Free + Pro direction",
 
   "logos.label": "Built with the tools you already love",
 
