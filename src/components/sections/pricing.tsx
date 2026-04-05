@@ -1,74 +1,63 @@
 /**
  * @file components/sections/pricing.tsx
- * @description Pricing section. All text from @/lib/i18n.
+ * @description ORAX editions section.
+ * Replaces old pricing tiers with Free / Pro positioning.
  */
+
 "use client";
-import { useEffect } from "react";
-import { Check, Minus } from "lucide-react";
+
+import { Check } from "lucide-react";
 import { useTheme } from "@/components/providers/theme-provider";
 import { t, type TKey } from "@/i18n";
-import DemoToastLink from "../shared/demo-toast-link";
 
-type FeatureKey = TKey;
-interface Tier {
+type EditionFeature = {
+  key: TKey;
+};
+
+type Edition = {
+  id: "free" | "pro";
   nameKey: TKey;
-  price: number;
+  badgeKey: TKey;
   descKey: TKey;
+  noteKey: TKey;
   ctaKey: TKey;
-  featured: boolean;
-  features: { key: FeatureKey; included: boolean }[];
-}
+  featured?: boolean;
+  features: EditionFeature[];
+};
 
-const tiers: Tier[] = [
+const editions: Edition[] = [
   {
-    nameKey: "pricing.t1.name",
-    price: 39,
-    descKey: "pricing.t1.desc",
-    ctaKey: "pricing.t1.cta",
-    featured: false,
+    id: "free",
+    nameKey: "editions.free.name",
+    badgeKey: "editions.free.badge",
+    descKey: "editions.free.desc",
+    noteKey: "editions.free.note",
+    ctaKey: "editions.free.cta",
     features: [
-      { key: "pricing.t1.only", included: true },
-      { key: "pricing.f.landing", included: true },
-      { key: "pricing.f.darkmode", included: true },
-      { key: "pricing.f.source", included: true },
-      { key: "pricing.f.updates6", included: true },
-      { key: "pricing.f.rtl", included: false },
-      { key: "pricing.f.auth", included: false },
-      { key: "pricing.f.payments", included: false },
+      { key: "editions.feature.ui" },
+      { key: "editions.feature.authUi" },
+      { key: "editions.feature.dashboardUi" },
+      { key: "editions.feature.settingsUi" },
+      { key: "editions.feature.rtl" },
+      { key: "editions.feature.design" },
     ],
   },
   {
-    nameKey: "pricing.t2.name",
-    price: 99,
-    descKey: "pricing.t2.desc",
-    ctaKey: "pricing.t2.cta",
+    id: "pro",
+    nameKey: "editions.pro.name",
+    badgeKey: "editions.pro.badge",
+    descKey: "editions.pro.desc",
+    noteKey: "editions.pro.note",
+    ctaKey: "editions.pro.cta",
     featured: true,
     features: [
-      { key: "pricing.t2.all", included: true },
-      { key: "pricing.f.rtl", included: true },
-      { key: "pricing.f.auth", included: true },
-      { key: "pricing.f.dashboard", included: true },
-      { key: "pricing.f.settings", included: true },
-      { key: "pricing.f.lifetime", included: true },
-      { key: "pricing.f.payments", included: false },
-      { key: "pricing.f.email", included: false },
-    ],
-  },
-  {
-    nameKey: "pricing.t3.name",
-    price: 179,
-    descKey: "pricing.t3.desc",
-    ctaKey: "pricing.t3.cta",
-    featured: false,
-    features: [
-      { key: "pricing.t3.all", included: true },
-      { key: "pricing.f.payments", included: true },
-      { key: "pricing.f.email", included: true },
-      { key: "pricing.f.webhooks", included: true },
-      { key: "pricing.f.db", included: true },
-      { key: "pricing.f.docs", included: true },
-      { key: "pricing.f.lifetime", included: true },
-      { key: "pricing.f.support", included: true },
+      { key: "editions.feature.rtl" },
+      { key: "editions.feature.authReal" },
+      { key: "editions.feature.routes" },
+      { key: "editions.feature.backend" },
+      { key: "editions.feature.api" },
+      { key: "editions.feature.db" },
+      { key: "editions.feature.arch" },
     ],
   },
 ];
@@ -77,40 +66,16 @@ export default function Pricing(): React.JSX.Element {
   const { locale, mounted } = useTheme();
   const l = mounted ? locale : "en";
 
-  useEffect(() => {
-    const init = async (): Promise<void> => {
-      const gsap = (await import("gsap")).default;
-      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
-      gsap.registerPlugin(ScrollTrigger);
-      gsap.fromTo(
-        ".pricing-card",
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.65,
-          ease: "power3.out",
-          stagger: 0.1,
-          scrollTrigger: {
-            trigger: "#pricing",
-            start: "top 75%",
-            toggleActions: "play none none none",
-          },
-        },
-      );
-    };
-    init();
-  }, [l]);
-
   return (
     <section id="pricing" aria-labelledby="pricing-heading">
       <div className="container">
-        <div style={{ textAlign: "center", marginBottom: 64 }}>
+        <div className="editions-header">
           <div className="label" style={{ justifyContent: "center" }}>
-            {t("pricing.label", l)}
+            {t("editions.label", l)}
           </div>
+
           <h2 className="h-display h-lg" id="pricing-heading">
-            {t("pricing.heading", l)}{" "}
+            {t("editions.heading", l)}{" "}
             <em
               style={{
                 fontStyle: "italic",
@@ -119,111 +84,50 @@ export default function Pricing(): React.JSX.Element {
                 WebkitTextFillColor: "var(--brand)",
               }}
             >
-              {t("pricing.italic", l)}
+              {t("editions.italic", l)}
             </em>
           </h2>
-          <p
-            style={{
-              color: "var(--text-3)",
-              fontSize: 14,
-              fontFamily: "var(--font-mono)",
-              letterSpacing: "0.04em",
-              marginTop: 16,
-            }}
-          >
-            {t("pricing.note", l)}
-          </p>
+
+          <p className="editions-sub">{t("editions.sub", l)}</p>
         </div>
-        <div className="pricing-grid">
-          {tiers.map((tier) => (
-            <div
-              key={tier.nameKey}
-              className={`pricing-card${tier.featured ? " featured" : ""}`}
-              style={{ opacity: 0 }}
+
+        <div className="editions-grid">
+          {editions.map((edition) => (
+            <article
+              key={edition.id}
+              className={`edition-card${edition.featured ? " featured" : ""}`}
             >
-              {tier.featured && (
-                <div className="pricing-badge">{t("pricing.popular", l)}</div>
-              )}
-              <p
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: 11,
-                  letterSpacing: "0.18em",
-                  textTransform: "uppercase",
-                  color: tier.featured ? "var(--brand)" : "var(--text-3)",
-                  marginBottom: 16,
-                }}
-              >
-                {t(tier.nameKey, l)}
-              </p>
-              <div className="pricing-price">
-                <sup>$</sup>
-                {tier.price}
+              <div className="edition-top">
+                <span className="edition-badge">{t(edition.badgeKey, l)}</span>
+
+                <h3 className="edition-title">{t(edition.nameKey, l)}</h3>
+
+                <p className="edition-desc">{t(edition.descKey, l)}</p>
               </div>
-              <p
-                style={{
-                  fontSize: 13,
-                  color: "var(--text-3)",
-                  fontFamily: "var(--font-mono)",
-                  marginBottom: 12,
-                }}
-              >
-                {t("pricing.period", l)}
-              </p>
-              <p
-                style={{
-                  fontSize: 14,
-                  color: "var(--text-2)",
-                  marginBottom: 28,
-                  lineHeight: 1.6,
-                }}
-              >
-                {t(tier.descKey, l)}
-              </p>
-              <div
-                style={{
-                  height: 1,
-                  background: "var(--border)",
-                  marginBottom: 24,
-                }}
-              />
-              <ul
-                style={{
-                  listStyle: "none",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 12,
-                  marginBottom: 32,
-                }}
-              >
-                {tier.features.map((f) => (
-                  <li key={f.key} className="pricing-feature">
-                    {f.included ? (
-                      <Check
-                        size={14}
-                        className="pricing-check"
-                        aria-label="Included"
-                      />
-                    ) : (
-                      <Minus
-                        size={14}
-                        className="pricing-x"
-                        aria-label="Not included"
-                      />
-                    )}
-                    <span style={{ opacity: f.included ? 1 : 0.4 }}>
-                      {t(f.key, l)}
-                    </span>
+
+              <ul className="edition-features">
+                {edition.features.map((feature) => (
+                  <li key={feature.key} className="edition-feature">
+                    <Check size={14} className="edition-check" />
+                    <span>{t(feature.key, l)}</span>
                   </li>
                 ))}
               </ul>
-              <DemoToastLink
-                className={`btn ${tier.featured ? "btn-glow" : "btn-ghost"}`}
-                style={{ width: "100%", justifyContent: "center" }}
-              >
-                {t(tier.ctaKey, l)}
-              </DemoToastLink>
-            </div>
+
+              <div className="edition-footer">
+                <p className="edition-note">{t(edition.noteKey, l)}</p>
+
+                <a
+                  href={edition.id === "free" ? "#features" : "#cta-final"}
+                  className={`btn ${
+                    edition.featured ? "btn-glow" : "btn-ghost"
+                  }`}
+                  style={{ width: "100%", justifyContent: "center" }}
+                >
+                  {t(edition.ctaKey, l)}
+                </a>
+              </div>
+            </article>
           ))}
         </div>
       </div>
