@@ -1,247 +1,76 @@
 /**
  * @file components/sections/footer.tsx
- * @description Footer with next/link for internal navigation.
+ * @description Minimal ORAX footer aligned with the current landing structure.
  */
 "use client";
+
 import Link from "next/link";
 import { Zap } from "lucide-react";
+
 import { useTheme } from "@/components/providers/theme-provider";
-import { t, type TKey } from "@/i18n";
+import { t } from "@/i18n";
 
-/* Internal routes use Link, anchor links (#) use <a> */
-const cols: {
-  headingKey: TKey;
-  links: { labelKey: TKey; href: string; internal?: boolean }[];
-}[] = [
-  {
-    headingKey: "footer.product",
-    links: [
-      { labelKey: "footer.features", href: "#features" },
-      { labelKey: "footer.pricing", href: "#pricing" },
-      { labelKey: "footer.howitworks", href: "#how" },
-      { labelKey: "footer.faq", href: "#faq" },
-    ],
-  },
-  {
-    headingKey: "footer.resources",
-    links: [
-      { labelKey: "footer.docs", href: "#" },
-      { labelKey: "footer.quickstart", href: "#" },
-      { labelKey: "footer.rtlguide", href: "#" },
-      { labelKey: "footer.changelog", href: "#" },
-    ],
-  },
-  {
-    headingKey: "footer.legal",
-    links: [
-      { labelKey: "footer.license", href: "#" },
-      { labelKey: "footer.privacy", href: "#" },
-      { labelKey: "footer.terms", href: "#" },
-      { labelKey: "footer.refund", href: "#" },
-    ],
-  },
+const navLinks = [
+  { key: "footer.capabilities" as const, href: "#features" },
+  { key: "footer.editions" as const, href: "#pricing" },
+  { key: "footer.faq" as const, href: "#faq" },
+  { key: "footer.nextStep" as const, href: "#cta-final" },
 ];
-
-const linkStyle: React.CSSProperties = {
-  fontSize: 14,
-  color: "var(--text-2)",
-  textDecoration: "none",
-  transition: "color 0.2s",
-};
 
 export default function Footer(): React.JSX.Element {
   const { locale, mounted, toggleLocale } = useTheme();
   const l = mounted ? locale : "en";
 
   return (
-    <footer
-      id="footer"
-      style={{
-        borderTop: "1px solid var(--border)",
-        paddingTop: 72,
-        paddingBottom: 40,
-      }}
-    >
+    <footer id="footer" className="footer-root">
       <div className="container">
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "2fr 1fr 1fr 1fr",
-            gap: 48,
-            marginBottom: 64,
-          }}
-        >
-          {/* Brand */}
-          <div>
-            <Link
-              href="/"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 8,
-                marginBottom: 16,
-                textDecoration: "none",
-              }}
-            >
-              <span
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  width: 28,
-                  height: 28,
-                  borderRadius: 8,
-                  background: "var(--brand)",
-                  boxShadow: "0 0 16px rgba(99,102,241,0.45)",
-                }}
-              >
+        <div className="footer-grid">
+          <div className="footer-brand-block">
+            <Link href="/" className="footer-brand">
+              <span className="footer-brand-icon" aria-hidden="true">
                 <Zap size={13} fill="white" color="white" />
               </span>
-              <span
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: 18,
-                  fontWeight: 800,
-                  color: "var(--text-1)",
-                  letterSpacing: "-0.04em",
-                }}
-              >
-                ORAX
-              </span>
+
+              <span className="footer-brand-text">ORAX</span>
             </Link>
-            <p
-              style={{
-                fontSize: 14,
-                color: "var(--text-3)",
-                lineHeight: 1.75,
-                maxWidth: 280,
-              }}
-            >
-              {t("footer.tagline", l)}
-            </p>
-            <div style={{ display: "flex", gap: 10, marginTop: 24 }}>
-              {[
-                { label: "Twitter", symbol: "𝕏", href: "#" },
-                { label: "GitHub", symbol: "⌥", href: "#" },
-                { label: "Discord", symbol: "◈", href: "#" },
-              ].map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  aria-label={s.label}
-                  style={{
-                    width: 34,
-                    height: 34,
-                    borderRadius: 8,
-                    border: "1px solid var(--border)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    color: "var(--text-3)",
-                    fontSize: 14,
-                    textDecoration: "none",
-                    transition: "border-color 0.2s,color 0.2s",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = "var(--border-glow)";
-                    e.currentTarget.style.color = "var(--brand)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = "var(--border)";
-                    e.currentTarget.style.color = "var(--text-3)";
-                  }}
-                >
-                  {s.symbol}
-                </a>
-              ))}
-            </div>
+
+            <p className="footer-tagline">{t("footer.tagline", l)}</p>
           </div>
 
-          {/* Link columns */}
-          {cols.map((col) => (
-            <div key={col.headingKey}>
-              <p
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: 10,
-                  letterSpacing: "0.16em",
-                  textTransform: "uppercase",
-                  color: "var(--text-3)",
-                  marginBottom: 20,
-                }}
-              >
-                {t(col.headingKey, l)}
-              </p>
-              <ul
-                style={{
-                  listStyle: "none",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 12,
-                }}
-              >
-                {col.links.map((link) => (
-                  <li key={link.labelKey}>
-                    {/* Anchor links stay as <a>, future internal pages can use Link */}
-                    <a
-                      href={link.href}
-                      style={linkStyle}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.color = "var(--text-1)";
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.color = "var(--text-2)";
-                      }}
-                    >
-                      {t(link.labelKey, l)}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div className="footer-nav-block">
+            <p className="footer-heading">{t("footer.navigation", l)}</p>
+
+            <ul className="footer-nav-list">
+              {navLinks.map((link) => (
+                <li key={link.key}>
+                  <a href={link.href} className="footer-link">
+                    {t(link.key, l)}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
-        <div className="divider" style={{ marginBottom: 32 }} />
+        <div className="divider footer-divider" />
 
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            flexWrap: "wrap",
-            gap: 16,
-          }}
-        >
-          <p
-            style={{
-              fontSize: 13,
-              color: "var(--text-3)",
-              fontFamily: "var(--font-mono)",
-            }}
-          >
+        <div className="footer-bottom">
+          <p className="footer-copy">
             {t("footer.copy", l)}{" "}
-            <span style={{ color: "var(--brand)", fontWeight: 600 }}>
-              {t("footer.author", l)}
-            </span>
+            <span className="footer-author">{t("footer.author", l)}</span>
           </p>
-          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-            {["Next.js 16", "TypeScript", "Tailwind v4"].map((b) => (
-              <span
-                key={b}
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: 10,
-                  padding: "3px 8px",
-                  borderRadius: 4,
-                  border: "1px solid var(--border)",
-                  color: "var(--text-3)",
-                  letterSpacing: "0.06em",
-                }}
-              >
-                {b}
+
+          <div className="footer-actions">
+            <span className="footer-stack-label">
+              {t("footer.stackLabel", l)}
+            </span>
+
+            {["Next.js", "TypeScript", "Tailwind CSS"].map((item) => (
+              <span key={item} className="footer-tech-pill">
+                {item}
               </span>
             ))}
+
             <button
               onClick={toggleLocale}
               type="button"
@@ -253,7 +82,6 @@ export default function Footer(): React.JSX.Element {
           </div>
         </div>
       </div>
-      <style>{`@media(max-width:900px){#footer .container>div:first-child{grid-template-columns:1fr 1fr!important}}@media(max-width:560px){#footer .container>div:first-child{grid-template-columns:1fr!important}}`}</style>
     </footer>
   );
 }
