@@ -192,6 +192,10 @@
   "footer.nextStep": "Next Step",
   "footer.switchLang": "العربية",
   "footer.stackLabel": "Built with",
+  "footer.social": "Social",
+  "footer.x": "X",
+  "footer.linkedin": "LinkedIn",
+  "footer.github": "GitHub",
 
   "auth.login.title": "Welcome back",
   "auth.login.subtitle": "Sign in to your ORAX account",

@@ -75,6 +75,18 @@
   color: var(--text-1);
 }
 
+.footer-side-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(160px, 1fr));
+  gap: 32px;
+}
+
+.footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .footer-divider {
   margin-bottom: 28px;
 }
@@ -125,5 +137,9 @@
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 36px;
+  }
+  .footer-side-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 }

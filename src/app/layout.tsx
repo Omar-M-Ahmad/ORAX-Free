@@ -12,7 +12,6 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Cairo } from "next/font/google";
 
-import { ToastProvider } from "@/components/providers/toast-provider";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { siteConfig } from "@/config/site";
 import "./styles/globals.css";
@@ -20,14 +19,14 @@ import "./styles/globals.css";
 const bricolage = Bricolage_Grotesque({
   variable: "--font-bricolage",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "700", "800"],
+  weight: ["400", "500", "700"],
   display: "swap",
 });
 
 const cairo = Cairo({
   variable: "--font-cairo",
   subsets: ["arabic"],
-  weight: ["300", "400", "500", "700", "800"],
+  weight: ["400", "500", "700"],
   display: "swap",
 });
 
@@ -98,9 +97,7 @@ export default function RootLayout({
       className={`${bricolage.variable} ${cairo.variable}`}
     >
       <body suppressHydrationWarning>
-        <ThemeProvider>
-          <ToastProvider>{children}</ToastProvider>
-        </ThemeProvider>
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );

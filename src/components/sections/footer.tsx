@@ -1,13 +1,14 @@
 /**
  * @file components/sections/footer.tsx
- * @description Minimal ORAX footer aligned with the current landing structure.
+ * @description Minimal ORAX footer with social media links.
  */
 "use client";
 
 import Link from "next/link";
-import { Zap } from "lucide-react";
+import { GitBranch, LinkIcon, X, Zap } from "lucide-react";
 
 import { useTheme } from "@/components/providers/theme-provider";
+import { siteConfig } from "@/config/site";
 import { t } from "@/i18n";
 
 const navLinks = [
@@ -15,6 +16,27 @@ const navLinks = [
   { key: "footer.editions" as const, href: "#pricing" },
   { key: "footer.faq" as const, href: "#faq" },
   { key: "footer.nextStep" as const, href: "#cta-final" },
+];
+
+const socialLinks = [
+  {
+    key: "footer.x" as const,
+    href: siteConfig.links.twitter,
+    icon: X,
+    label: "X",
+  },
+  {
+    key: "footer.github" as const,
+    href: siteConfig.links.github,
+    icon: GitBranch,
+    label: "GitHub",
+  },
+  {
+    key: "footer.linkedin" as const,
+    href: siteConfig.links.linkedin,
+    icon: LinkIcon,
+    label: "LinkedIn",
+  },
 ];
 
 export default function Footer(): React.JSX.Element {
@@ -50,6 +72,30 @@ export default function Footer(): React.JSX.Element {
               ))}
             </ul>
           </div>
+        </div>
+
+        <div className="footer-nav-block">
+          <p className="footer-heading">{t("footer.social", l)}</p>
+
+          <ul className="footer-nav-list">
+            {socialLinks.map((link) => {
+              if (!link.href) return null;
+
+              return (
+                <li key={link.key}>
+                  <a
+                    href={link.href}
+                    className="footer-link footer-social-link"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {link.icon && <link.icon />}
+                    <span>{t(link.key, l)}</span>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
         </div>
 
         <div className="divider footer-divider" />
