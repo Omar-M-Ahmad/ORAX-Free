@@ -51,3 +51,39 @@
 .faq-item.open .faq-answer {
   display: block;
 }
+
+.faq-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.faq-sticky {
+  position: sticky;
+  top: 120px;
+}
+
+.faq-side-copy {
+  color: var(--text-2);
+  margin-top: 16px;
+  font-size: 15px;
+  line-height: 1.8;
+  font-weight: 300;
+  max-width: 320px;
+}
+
+.faq-list {
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 900px) {
+  .faq-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .faq-sticky {
+    position: static;
+  }
+}

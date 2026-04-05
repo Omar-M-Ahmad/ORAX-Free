@@ -150,13 +150,37 @@
   "feat.positioning.title": "Built for serious SaaS builders targeting Arabic users",
   "feat.positioning.desc": "ORAX is intentionally shaped for developers who need bilingual product credibility, not another generic starter.",
 
-  "cta.label": "— Ready?",
-  "cta.line1": "Stop building from",
-  "cta.line2": "scratch. Start shipping.",
-  "cta.sub": "Your next project is 5 minutes from being live. Every hour on boilerplate is an hour not spent on what matters.",
-  "cta.btn1": "Get ORAX Kit",
-  "cta.btn2": "View live demo",
-  "cta.note": "One-time payment · Lifetime updates · RTL included · 7-day guarantee",
+  "faq.label": "04 — FAQ",
+  "faq.heading": "Questions worth",
+  "faq.italic": "answering.",
+  "faq.sub": "The goal is clarity: what ORAX is, what it includes, and how Free and Pro are intentionally separated.",
+  "faq.contact": "Need something more specific?",
+
+  "faq.q1": "Is ORAX Free just a teaser?",
+  "faq.a1": "No. ORAX Free is meant to feel complete from a UI and product experience perspective. It is designed to build trust, not to feel broken on purpose.",
+
+  "faq.q2": "What is the actual difference between Free and Pro?",
+  "faq.a2": "Free focuses on polished UI, landing, auth screens, dashboard views, settings screens, RTL support, and the design system. Pro is the real SaaS system layer with authentication, protected routes, API structure, database integration, and scalable architecture.",
+
+  "faq.q3": "Does ORAX really support Arabic and RTL properly?",
+  "faq.a3": "Yes. Arabic and RTL are part of the foundation, not an afterthought. Layout direction, spacing, typography, and interface behavior are considered as part of the system design.",
+
+  "faq.q4": "Who is ORAX actually for?",
+  "faq.a4": "It is built for serious developers and SaaS builders who need a bilingual foundation, real RTL credibility, and a codebase that can grow cleanly.",
+
+  "faq.q5": "Is ORAX trying to be a generic starter for everyone?",
+  "faq.a5": "No. ORAX is intentionally opinionated. Its value comes from focus: Arabic support, clean structure, and a more system-oriented way of building SaaS products.",
+
+  "faq.q6": "Why split the product into Free and Pro?",
+  "faq.a6": "Because mixing polished UI and real backend power into one unclear package creates confusion. The split keeps Free visually complete and Pro technically meaningful.",
+
+  "cta.label": "05 — Next Step",
+  "cta.line1": "Start with clarity.",
+  "cta.line2": "Then build with ORAX.",
+  "cta.sub": "ORAX is being shaped as a serious SaaS system: clear in its Free edition, meaningful in its Pro direction, and opinionated where it should be.",
+  "cta.btn1": "Explore ORAX Free",
+  "cta.btn2": "Review the Pro direction",
+  "cta.note": "Real RTL support · Bilingual foundation · Clean architecture mindset",
 
   "footer.tagline": "The SaaS starter kit that converts. Built with Next.js 16 and first-class RTL support.",
   "footer.copy": "© 2026 ORAX · Built by",
