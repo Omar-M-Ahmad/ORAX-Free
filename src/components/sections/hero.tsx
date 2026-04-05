@@ -22,36 +22,6 @@ export default function HeroSection(): React.JSX.Element {
   const l = mounted ? locale : "en";
   const isAr = l === "ar";
 
-  const stats = useMemo<HeroStat[]>(
-    () => [
-      {
-        id: "rtl",
-        value: t("hero.stats.rtl.value", l),
-        suffix: t("hero.stats.rtl.suffix", l),
-        label: t("hero.stats.rtl.label", l),
-      },
-      {
-        id: "i18n",
-        value: t("hero.stats.i18n.value", l),
-        suffix: t("hero.stats.i18n.suffix", l),
-        label: t("hero.stats.i18n.label", l),
-      },
-      {
-        id: "arch",
-        value: t("hero.stats.arch.value", l),
-        suffix: t("hero.stats.arch.suffix", l),
-        label: t("hero.stats.arch.label", l),
-      },
-      {
-        id: "editions",
-        value: t("hero.stats.editions.value", l),
-        suffix: t("hero.stats.editions.suffix", l),
-        label: t("hero.stats.editions.label", l),
-      },
-    ],
-    [l],
-  );
-
   return (
     <section id="hero" aria-labelledby="hero-heading">
       <div className="hero-bg" aria-hidden="true">
@@ -154,19 +124,6 @@ export default function HeroSection(): React.JSX.Element {
               <span className="hero-rtl-bar hero-rtl-bar-short" />
             </div>
           </div>
-        </div>
-
-        <div className="hero-stats" role="list">
-          {stats.map((stat) => (
-            <div key={stat.id} role="listitem" className="hero-stat-item">
-              <div className="hero-stat-val">
-                <span>{stat.value}</span>
-                {stat.suffix}
-              </div>
-
-              <div className="hero-stat-label">{stat.label}</div>
-            </div>
-          ))}
         </div>
       </div>
     </section>
