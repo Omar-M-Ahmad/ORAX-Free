@@ -13,6 +13,13 @@ import Pricing from "@/components/sections/pricing";
 import FAQ from "@/components/sections/faq";
 import FinalCTA from "@/components/sections/final-cta";
 import Footer from "@/components/sections/footer";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Home | ORAX",
+  description:
+    "ORAX is a serious SaaS starter system built for Arabic and RTL product.",
+};
 
 export default function HomePage(): React.JSX.Element {
   return (
