@@ -14,7 +14,6 @@ import { Bricolage_Grotesque, Cairo } from "next/font/google";
 
 import { ToastProvider } from "@/components/providers/toast-provider";
 import { ThemeProvider } from "@/components/providers/theme-provider";
-import CustomCursor from "@/components/shared/custom-cursor";
 import { siteConfig } from "@/config/site";
 import "./styles/globals.css";
 
@@ -33,26 +32,55 @@ const cairo = Cairo({
 });
 
 export const metadata: Metadata = {
-  title: `${siteConfig.name} — Next.js SaaS Starter Kit`,
-  description: siteConfig.description,
-  keywords: [...siteConfig.keywords],
-  authors: [{ name: siteConfig.author }],
   metadataBase: new URL(siteConfig.url),
-  icons: {
-    icon: "/icon.svg",
+
+  title: {
+    default: siteConfig.title,
+    template: "%s | ORAX",
   },
+
+  description: siteConfig.description,
+
+  keywords: [
+    "SaaS starter",
+    "Next.js SaaS",
+    "RTL support",
+    "Arabic SaaS",
+    "bilingual SaaS",
+    "Next.js starter",
+    "clean architecture SaaS",
+  ],
+
+  authors: [{ name: "Omar Mahmoud Ahmad" }],
+  creator: "Omar Mahmoud Ahmad",
+
   openGraph: {
-    title: `${siteConfig.name} — Next.js SaaS Starter Kit`,
-    description: siteConfig.description,
-    url: siteConfig.url,
-    siteName: siteConfig.name,
-    locale: "en_US",
     type: "website",
+    locale: "en_US",
+    url: siteConfig.url,
+    title: siteConfig.title,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 1200,
+        height: 630,
+        alt: "ORAX SaaS Starter System",
+      },
+    ],
   },
+
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} — Next.js SaaS Starter Kit`,
+    title: siteConfig.title,
     description: siteConfig.description,
+    images: [siteConfig.ogImage],
+    creator: "@omar_m_ahmad",
+  },
+
+  icons: {
+    icon: "/icon.svg",
   },
 };
 
@@ -70,13 +98,8 @@ export default function RootLayout({
       className={`${bricolage.variable} ${cairo.variable}`}
     >
       <body suppressHydrationWarning>
-        <div id="cursor-dot" aria-hidden="true" />
-        <div id="cursor-ring" aria-hidden="true" />
         <ThemeProvider>
-          <ToastProvider>
-            <CustomCursor />
-            {children}
-          </ToastProvider>
+          <ToastProvider>{children}</ToastProvider>
         </ThemeProvider>
       </body>
     </html>

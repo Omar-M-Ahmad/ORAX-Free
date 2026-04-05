@@ -65,9 +65,7 @@ export default function Navbar(): React.JSX.Element {
           </button>
 
           <Link
-            href={siteConfig.links.buy}
-            target="_blank"
-            rel="noreferrer"
+            href="/login"
             className="btn btn-primary nav-desktop-cta"
             style={{ padding: "9px 20px", fontSize: 14 }}
             aria-label="Buy ORAX"
@@ -130,9 +128,7 @@ export default function Navbar(): React.JSX.Element {
           </div>
 
           <Link
-            href={siteConfig.links.buy}
-            target="_blank"
-            rel="noreferrer"
+            href="/login"
             className="btn btn-glow"
             style={{ marginTop: 8, justifyContent: "center", gap: 8 }}
             onClick={() => setMenuOpen(false)}
