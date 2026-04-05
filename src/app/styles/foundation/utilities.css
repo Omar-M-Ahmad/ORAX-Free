@@ -1,0 +1,75 @@
+.container {
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+section {
+  padding: 110px 0;
+}
+
+.h-display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.25;
+  color: var(--text-1);
+}
+
+.h-xl {
+  font-size: clamp(52px, 7vw, 100px);
+}
+
+.h-lg {
+  font-size: clamp(36px, 5vw, 64px);
+}
+
+.h-md {
+  font-size: clamp(26px, 3.5vw, 42px);
+}
+
+.gradient-text {
+  background: linear-gradient(
+    135deg,
+    var(--brand) 0%,
+    var(--violet) 50%,
+    var(--amber) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.italic-accent {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--brand);
+  -webkit-text-fill-color: var(--brand);
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brand);
+  margin-bottom: 20px;
+}
+
+.label::before {
+  content: "";
+  width: 20px;
+  height: 1px;
+  background: var(--brand);
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  section {
+    padding: 72px 0;
+  }
+}

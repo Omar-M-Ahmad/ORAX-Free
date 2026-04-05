@@ -16,7 +16,7 @@ import { ToastProvider } from "@/components/providers/toast-provider";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import CustomCursor from "@/components/shared/custom-cursor";
 import { siteConfig } from "@/config/site";
-import "./globals.css";
+import "./styles/globals.css";
 
 const bricolage = Bricolage_Grotesque({
   variable: "--font-bricolage",

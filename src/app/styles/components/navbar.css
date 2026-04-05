@@ -1,0 +1,115 @@
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-h);
+  z-index: 1000;
+  transition:
+    background 0.4s ease,
+    border-color 0.4s ease;
+}
+
+#navbar.scrolled {
+  background: rgba(4, 5, 10, 0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border);
+}
+
+[data-theme="light"] #navbar.scrolled {
+  background: rgba(248, 250, 255, 0.88);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: -0.05em;
+  color: var(--text-1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-logo-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--brand);
+  border-radius: 50%;
+  animation: pulse-dot 2.4s infinite;
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.55);
+  }
+  50% {
+    box-shadow: 0 0 0 7px rgba(99, 102, 241, 0);
+  }
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-2);
+  transition: color 0.2s;
+  letter-spacing: -0.01em;
+}
+
+.nav-links a:hover {
+  color: var(--text-1);
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: var(--text-2);
+  cursor: pointer;
+  transition: var(--transition);
+  background: transparent;
+}
+
+.nav-toggle-btn:hover {
+  border-color: var(--border-glow);
+  color: var(--brand);
+  background: var(--brand-dim);
+}
+
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+  }
+}
