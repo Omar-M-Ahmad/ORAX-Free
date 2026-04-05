@@ -76,7 +76,7 @@
   letter-spacing: -0.02em;
   color: var(--text-1);
   margin-bottom: 8px;
-  line-height: 1.25;
+  line-height: 1.5;
 }
 
 .bento-card-desc {
@@ -113,4 +113,146 @@
     font-size: 14px;
     line-height: 1.75;
   }
+}
+
+/* ------ */
+
+.features-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 64px;
+}
+
+.cap-rtl {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cap-rtl-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cap-rtl-row span {
+  width: 40px;
+  flex-shrink: 0;
+  font-size: 11px;
+  color: var(--text-3);
+  font-family: var(--font-mono);
+}
+
+.cap-bar {
+  flex: 1;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.cap-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--brand), var(--violet));
+}
+
+.cap-bar-fill-ltr {
+  width: 84%;
+}
+
+.cap-bar-fill-rtl {
+  width: 72%;
+  margin-left: auto;
+}
+
+.cap-tags {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cap-tags span,
+.cap-pill {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--text-2);
+  background: var(--bg-1);
+}
+
+.cap-structure {
+  margin-top: 24px;
+  display: grid;
+  gap: 10px;
+}
+
+.cap-structure div {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--bg-1);
+  color: var(--text-2);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.cap-stack {
+  margin-top: 24px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cap-flow {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  color: var(--text-2);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.cap-arrow {
+  color: var(--brand);
+}
+
+.cap-swatches {
+  margin-top: 24px;
+  display: flex;
+  gap: 10px;
+}
+
+.cap-swatches span {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  display: block;
+  box-shadow: 0 0 18px rgba(99, 102, 241, 0.12);
+}
+
+.cap-code {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cap-code div {
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  color: var(--text-2);
+  font-family: var(--font-mono);
+  font-size: 12px;
 }

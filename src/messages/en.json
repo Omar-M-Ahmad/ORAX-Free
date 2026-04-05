@@ -45,15 +45,6 @@
 
   "logos.label": "Built with the tools you already love",
 
-  "features.label": "03 — Features",
-  "features.heading": "Everything you need.",
-  "features.headingItalic": "Nothing you don't.",
-  "features.link": "Explore all features →",
-
-  "feat.rtl.label": "RTL / LTR Native",
-  "feat.rtl.title": "First-class Arabic support — no hacks, no workarounds",
-  "feat.rtl.desc": "Switch between RTL and LTR with a single attribute. Every component, animation, and layout responds perfectly.",
-
   "feat.perf.label": "Performance",
   "feat.perf.title": "Lighthouse 95+",
   "feat.perf.desc": "PPR, optimized fonts, lazy images. Ships fast out of the box.",
@@ -130,23 +121,34 @@
   "editions.feature.db": "Database layer",
   "editions.feature.arch": "Scalable SaaS architecture",
 
-  "faq.label": "09 — FAQ",
-  "faq.heading": "Got",
-  "faq.italic": "questions?",
-  "faq.sub": "Can't find your answer? Email us and get a response within 24 hours.",
-  "faq.contact": "Contact us →",
-  "faq.q1": "Is this a real Next.js project or just an HTML template?",
-  "faq.a1": "This is a full Next.js 16 App Router project with TypeScript — not converted HTML. You get clean, production-ready React components, proper routing, and a working dev server from the very first command.",
-  "faq.q2": "How does the RTL support actually work?",
-  "faq.a2": "Every component uses logical CSS properties. The ThemeProvider manages direction — switching the locale to Arabic flips the entire layout including animations and spacing automatically.",
-  "faq.q3": "Can I use this for client projects?",
-  "faq.a3": "Pro and Complete licenses allow unlimited client projects. No per-project fee.",
-  "faq.q4": "Does it work with backends other than Supabase (e.g. Laravel)?",
-  "faq.a4": "Yes. The frontend is completely decoupled. Connect it to any backend via REST or GraphQL — Laravel, Django, Node.js, or any other stack.",
-  "faq.q5": "What does \"lifetime updates\" mean exactly?",
-  "faq.a5": "All future version updates at no additional cost — new sections, improvements, dependency updates, and compatibility fixes — forever.",
-  "faq.q6": "Is there a refund policy?",
-  "faq.a6": "Yes. If you are not satisfied within 7 days of purchase and have not deployed to production, we offer a full refund — no questions asked.",
+  "features.label": "02 — System Capabilities",
+  "features.heading": "Built as a system.",
+  "features.headingItalic": "Not stitched together.",
+  "features.link": "See the editions →",
+
+  "feat.rtl.label": "RTL Foundation",
+  "feat.rtl.title": "Arabic and RTL are built in from the start",
+  "feat.rtl.desc": "ORAX is not retrofitted for Arabic. Direction, spacing, typography, and layout behavior are treated as part of the system.",
+
+  "feat.structure.label": "Clean Structure",
+  "feat.structure.title": "Clear separation between UI, system, and future app logic",
+  "feat.structure.desc": "The project is shaped to avoid mixing landing concerns with future SaaS logic, making the codebase easier to grow.",
+
+  "feat.free.label": "Free Edition",
+  "feat.free.title": "A polished free version that still feels complete",
+  "feat.free.desc": "ORAX Free is designed to build trust through real UI quality, not through fake backend promises.",
+
+  "feat.pro.label": "Pro Direction",
+  "feat.pro.title": "A real path toward a production SaaS system",
+  "feat.pro.desc": "ORAX Pro is positioned as the technical foundation for real authentication, protected routes, APIs, and scalable product architecture.",
+
+  "feat.design.label": "Design System",
+  "feat.design.title": "A consistent interface language across the product",
+  "feat.design.desc": "Shared tokens, reusable patterns, and visual consistency make the UI easier to maintain and extend.",
+
+  "feat.positioning.label": "Product Thinking",
+  "feat.positioning.title": "Built for serious SaaS builders targeting Arabic users",
+  "feat.positioning.desc": "ORAX is intentionally shaped for developers who need bilingual product credibility, not another generic starter.",
 
   "cta.label": "— Ready?",
   "cta.line1": "Stop building from",
