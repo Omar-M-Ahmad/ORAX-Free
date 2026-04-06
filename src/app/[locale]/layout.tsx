@@ -78,11 +78,6 @@ export const metadata: Metadata = {
   },
 };
 
-type RootLayoutProps = {
-  children: React.ReactNode;
-  params: Promise<{ locale: string }>;
-};
-
 function isSupportedLocale(locale: string): locale is "en" | "ar" {
   return locale === "en" || locale === "ar";
 }
@@ -90,7 +85,10 @@ function isSupportedLocale(locale: string): locale is "en" | "ar" {
 export default async function RootLayout({
   children,
   params,
-}: RootLayoutProps): Promise<React.JSX.Element> {
+}: {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}): Promise<React.JSX.Element> {
   const { locale } = await params;
   const resolvedLocale = isSupportedLocale(locale) ? locale : "en";
   const dir = resolvedLocale === "ar" ? "rtl" : "ltr";
