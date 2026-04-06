@@ -6,7 +6,7 @@
 "use client";
 
 import { useToast } from "@/components/providers/toast-provider";
-import { useTheme } from "@/components/providers/theme-provider";
+import { useLocale } from "@/components/providers/locale-provider";
 import { t } from "@/i18n";
 
 export default function DemoToastLink({
@@ -19,8 +19,8 @@ export default function DemoToastLink({
   style?: React.CSSProperties;
 }): React.JSX.Element {
   const { showToast } = useToast();
-  const { locale, mounted } = useTheme();
-  const l = mounted ? locale : "en";
+  const { locale } = useLocale();
+  const l = locale;
 
   return (
     <button

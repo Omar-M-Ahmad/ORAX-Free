@@ -7,7 +7,7 @@
 "use client";
 
 import { Check } from "lucide-react";
-import { useTheme } from "@/components/providers/theme-provider";
+import { useLocale } from "@/components/providers/locale-provider";
 import { t, type TKey } from "@/i18n";
 
 type EditionFeature = {
@@ -63,8 +63,7 @@ const editions: Edition[] = [
 ];
 
 export default function Pricing(): React.JSX.Element {
-  const { locale, mounted } = useTheme();
-  const l = mounted ? locale : "en";
+  const { locale: l } = useLocale();
 
   return (
     <section id="pricing" aria-labelledby="pricing-heading">

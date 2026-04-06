@@ -3,9 +3,9 @@
  * @description Core translation utilities for ORAX.
  */
 
-import en from "@/messages/en.json";
-import ar from "@/messages/ar.json";
-import type { Locale, TKey, TranslateParams } from "@/i18n/types";
+import en from "./messages/en.json";
+import ar from "./messages/ar.json";
+import type { Locale, TKey, TranslateParams } from "./types";
 
 const messages = {
   en,
@@ -21,12 +21,31 @@ function interpolate(text: string, params?: TranslateParams): string {
   });
 }
 
+function getNestedValue(obj: Record<string, unknown>, key: string): unknown {
+  return key.split(".").reduce<unknown>((acc, part) => {
+    if (acc && typeof acc === "object" && part in acc) {
+      return (acc as Record<string, unknown>)[part];
+    }
+
+    return undefined;
+  }, obj);
+}
+
 export function t(
   key: TKey | string,
   locale: Locale,
   params?: TranslateParams,
 ): string {
-  const raw = messages[locale][key as keyof (typeof messages)[Locale]];
+  const dictionary = messages[locale];
+
+  if (!dictionary) {
+    return String(key);
+  }
+
+  const raw = getNestedValue(
+    dictionary as Record<string, unknown>,
+    String(key),
+  );
 
   if (typeof raw !== "string") {
     return String(key);

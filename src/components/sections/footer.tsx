@@ -5,11 +5,12 @@
 "use client";
 
 import Link from "next/link";
-import { GitBranch, LinkIcon, X, Zap } from "lucide-react";
+import { Zap } from "lucide-react";
 
-import { useTheme } from "@/components/providers/theme-provider";
+import { useLocale } from "@/components/providers/locale-provider";
 import { siteConfig } from "@/config/site";
 import { t } from "@/i18n";
+import { SocialIcons } from "@/components/shared/icons";
 
 const navLinks = [
   { key: "footer.capabilities" as const, href: "#features" },
@@ -22,26 +23,34 @@ const socialLinks = [
   {
     key: "footer.x" as const,
     href: siteConfig.links.twitter,
-    icon: X,
+    icon: SocialIcons.X,
     label: "X",
+    color: "#000000",
   },
   {
     key: "footer.github" as const,
     href: siteConfig.links.github,
-    icon: GitBranch,
+    icon: SocialIcons.GitHub,
     label: "GitHub",
+    color: "#24292e",
   },
   {
     key: "footer.linkedin" as const,
     href: siteConfig.links.linkedin,
-    icon: LinkIcon,
+    icon: SocialIcons.LinkedIn,
     label: "LinkedIn",
+    color: "#0077b5",
   },
 ];
 
 export default function Footer(): React.JSX.Element {
-  const { locale, mounted, toggleLocale } = useTheme();
-  const l = mounted ? locale : "en";
+  const { locale, setLocale } = useLocale();
+  const l = locale;
+
+  const toggleLocale = () => {
+    const nextLocale = locale === "en" ? "ar" : "en";
+    setLocale(nextLocale);
+  };
 
   return (
     <footer id="footer" className="footer-root">
@@ -50,18 +59,39 @@ export default function Footer(): React.JSX.Element {
           <div className="footer-brand-block">
             <Link href="/" className="footer-brand">
               <span className="footer-brand-icon" aria-hidden="true">
-                <Zap size={13} fill="white" color="white" />
+                <Zap size={14} fill="white" color="white" />
               </span>
-
               <span className="footer-brand-text">ORAX</span>
             </Link>
 
             <p className="footer-tagline">{t("footer.tagline", l)}</p>
+
+            <div className="footer-social-list">
+              {socialLinks.map((link) => {
+                if (!link.href) return null;
+
+                return (
+                  <a
+                    key={link.key}
+                    href={link.href}
+                    className="footer-social-icon-link"
+                    style={
+                      { "--platform-color": link.color } as React.CSSProperties
+                    }
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={link.label}
+                    title={link.label}
+                  >
+                    {link.icon && <link.icon />}
+                  </a>
+                );
+              })}
+            </div>
           </div>
 
           <div className="footer-nav-block">
             <p className="footer-heading">{t("footer.navigation", l)}</p>
-
             <ul className="footer-nav-list">
               {navLinks.map((link) => (
                 <li key={link.key}>
@@ -74,55 +104,35 @@ export default function Footer(): React.JSX.Element {
           </div>
         </div>
 
-        <div className="footer-nav-block">
-          <p className="footer-heading">{t("footer.social", l)}</p>
-
-          <ul className="footer-nav-list">
-            {socialLinks.map((link) => {
-              if (!link.href) return null;
-
-              return (
-                <li key={link.key}>
-                  <a
-                    href={link.href}
-                    className="footer-link footer-social-link"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {link.icon && <link.icon />}
-                    <span>{t(link.key, l)}</span>
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-
         <div className="divider footer-divider" />
 
         <div className="footer-bottom">
-          <p className="footer-copy">
-            {t("footer.copy", l)}{" "}
-            <span className="footer-author">{t("footer.author", l)}</span>
-          </p>
+          <div className="footer-bottom-info">
+            <p className="footer-copy">
+              {t("footer.copy", l)}{" "}
+              <span className="footer-author">{t("footer.author", l)}</span>
+            </p>
+          </div>
 
           <div className="footer-actions">
             <span className="footer-stack-label">
               {t("footer.stackLabel", l)}
             </span>
 
-            {["Next.js", "TypeScript", "Tailwind CSS"].map((item) => (
-              <span key={item} className="footer-tech-pill">
-                {item}
-              </span>
-            ))}
+            <div className="footer-tech-list">
+              {["Next.js", "TypeScript", "Tailwind CSS"].map((item) => (
+                <span key={item} className="footer-tech-pill">
+                  {item}
+                </span>
+              ))}
+            </div>
 
             <button
               onClick={toggleLocale}
               type="button"
-              className="nav-toggle-btn"
-              style={{ fontSize: 11 }}
+              className="nav-toggle-btn footer-lang-btn"
             >
+              <span style={{ fontSize: 13, marginRight: 6 }}>🌐</span>
               {t("footer.switchLang", l)}
             </button>
           </div>

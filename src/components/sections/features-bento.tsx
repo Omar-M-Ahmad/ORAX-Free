@@ -5,7 +5,7 @@
 
 "use client";
 
-import { useTheme } from "@/components/providers/theme-provider";
+import { useLocale } from "@/components/providers/locale-provider";
 import { t, type TKey } from "@/i18n";
 
 type Card = {
@@ -69,8 +69,7 @@ const cards: Card[] = [
 ];
 
 export default function FeaturesBento(): React.JSX.Element {
-  const { locale, mounted } = useTheme();
-  const l = mounted ? locale : "en";
+  const { locale: l } = useLocale();
 
   return (
     <section id="features" aria-labelledby="features-heading">

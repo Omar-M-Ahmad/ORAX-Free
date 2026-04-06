@@ -1,20 +1,15 @@
 /**
- * @file app/layout.tsx
- * @description Root layout.
- *
- * Anti-flash strategy (Next.js 16 App Router compatible):
- * - CSS: body starts with opacity: 0, transition to opacity: 1
- * - ThemeProvider: after applying real theme, sets data-ready on <html>
- * - CSS: [data-ready] body { opacity: 1 }
- * - Result: no flash — content appears only after correct theme is applied
+ * @file app/[locale]/layout.tsx
+ * @description Root layout for localized routes.
  */
 
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Cairo } from "next/font/google";
 
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import { LocaleProvider } from "@/components/providers/locale-provider";
 import { siteConfig } from "@/config/site";
-import "./styles/globals.css";
+import "@/app/styles/globals.css";
 
 const bricolage = Bricolage_Grotesque({
   variable: "--font-bricolage",
@@ -83,21 +78,35 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
+type RootLayoutProps = {
   children: React.ReactNode;
-}): React.JSX.Element {
+  params: Promise<{ locale: string }>;
+};
+
+function isSupportedLocale(locale: string): locale is "en" | "ar" {
+  return locale === "en" || locale === "ar";
+}
+
+export default async function RootLayout({
+  children,
+  params,
+}: RootLayoutProps): Promise<React.JSX.Element> {
+  const { locale } = await params;
+  const resolvedLocale = isSupportedLocale(locale) ? locale : "en";
+  const dir = resolvedLocale === "ar" ? "rtl" : "ltr";
+
   return (
     <html
-      lang="en"
-      dir="ltr"
+      lang={resolvedLocale}
+      dir={dir}
       data-theme="dark"
       suppressHydrationWarning
       className={`${bricolage.variable} ${cairo.variable}`}
     >
       <body suppressHydrationWarning>
-        <ThemeProvider>{children}</ThemeProvider>
+        <LocaleProvider locale={resolvedLocale}>
+          <ThemeProvider>{children}</ThemeProvider>
+        </LocaleProvider>
       </body>
     </html>
   );

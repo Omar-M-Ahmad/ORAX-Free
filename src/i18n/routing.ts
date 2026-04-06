@@ -3,7 +3,7 @@
  * @description ORAX locale configuration.
  */
 
-import type { Locale } from "@/i18n/types";
+import type { Locale } from "./types";
 
 export const locales: Locale[] = ["en", "ar"];
 export const defaultLocale: Locale = "en";

@@ -1,0 +1,367 @@
+{
+  "common": {
+    "getStarted": "Get Started",
+    "signIn": "Sign in",
+    "signOut": "Sign out",
+    "menu": "Menu",
+    "loading": "Loading..."
+  },
+  "notFound": {
+    "title": "Page not found.",
+    "desc": "The page you are looking for does not exist or may have been moved. Let's get you back on track.",
+    "home": "Back to home",
+    "back": "Go back"
+  },
+  "toast": {
+    "comingSoon": "This feature is coming soon."
+  },
+  "nav": {
+    "features": "Features",
+    "pricing": "Pricing",
+    "faq": "FAQ",
+    "signin": "Sign in",
+    "cta": "Get Started",
+    "langLabel": "عربي",
+    "langAriaEn": "Switch to Arabic"
+  },
+  "hero": {
+    "badge": "Next.js · TypeScript · Tailwind CSS · Arabic + English",
+    "line1": "Build SaaS",
+    "line2": "on a real system.",
+    "line3": "Not a demo.",
+    "sub": "ORAX is a modern SaaS starter system built for real products, with first-class RTL support, clean architecture, and a bilingual foundation from day one.",
+    "cta1": "Explore ORAX Free",
+    "cta2": "See what makes it different",
+    "stats": {
+      "rtl": {
+        "value": "2",
+        "suffix": "x",
+        "label": "RTL + LTR ready"
+      },
+      "i18n": {
+        "value": "2",
+        "suffix": "",
+        "label": "Arabic + English"
+      },
+      "arch": {
+        "value": "1",
+        "suffix": "",
+        "label": "Clean system foundation"
+      },
+      "editions": {
+        "value": "2",
+        "suffix": "",
+        "label": "Free + Pro direction"
+      }
+    }
+  },
+  "logos": {
+    "label": "Built with the tools you already love"
+  },
+  "feat": {
+    "perf": {
+      "label": "Performance",
+      "title": "Lighthouse 95+",
+      "desc": "PPR, optimized fonts, lazy images. Ships fast out of the box."
+    },
+    "theme": {
+      "label": "Dark / Light Mode",
+      "title": "Pixel-perfect in both themes",
+      "desc": "Full CSS Variables system. localStorage persistence. Smooth transitions."
+    },
+    "anim": {
+      "label": "Cinematic Animations",
+      "title": "GSAP + Framer Motion — scroll-driven storytelling",
+      "desc": "Page load sequences, ScrollTrigger reveals, custom cursor, particle canvas. Every animation is purposeful."
+    },
+    "dx": {
+      "label": "Developer Experience",
+      "title": "TypeScript strict mode, fully typed",
+      "desc": "Every component documented. Biome for linting. Zero guesswork."
+    },
+    "tokens": {
+      "label": "Design Tokens",
+      "title": "Brand it in 30 seconds",
+      "desc": "Change your brand color once in globals.css and the entire template updates."
+    },
+    "rtl": {
+      "label": "RTL Foundation",
+      "title": "Arabic and RTL are built in from the start",
+      "desc": "ORAX is not retrofitted for Arabic. Direction, spacing, typography, and layout behavior are treated as part of the system."
+    },
+    "structure": {
+      "label": "Clean Structure",
+      "title": "Clear separation between UI, system, and future app logic",
+      "desc": "The project is shaped to avoid mixing landing concerns with future SaaS logic, making the codebase easier to grow."
+    },
+    "free": {
+      "label": "Free Edition",
+      "title": "A polished free version that still feels complete",
+      "desc": "ORAX Free is designed to build trust through real UI quality, not through fake backend promises."
+    },
+    "pro": {
+      "label": "Pro Direction",
+      "title": "A real path toward a production SaaS system",
+      "desc": "ORAX Pro is positioned as the technical foundation for real authentication, protected routes, APIs, and scalable product architecture."
+    },
+    "design": {
+      "label": "Design System",
+      "title": "A consistent interface language across the product",
+      "desc": "Shared tokens, reusable patterns, and visual consistency make the UI easier to maintain and extend."
+    },
+    "positioning": {
+      "label": "Product Thinking",
+      "title": "Built for serious SaaS builders targeting Arabic users",
+      "desc": "ORAX is intentionally shaped for developers who need bilingual product credibility, not another generic starter."
+    }
+  },
+  "how": {
+    "label": "05 — Process",
+    "heading": "From install to",
+    "italic": "live in minutes.",
+    "sub": "No complex setup. No server configurations. Just clone, fill your .env, and deploy.",
+    "cta": "Get Started →",
+    "s1": {
+      "tag": "Install",
+      "title": "Clone and install with pnpm",
+      "desc": "Run",
+      "after": "inside the project. TypeScript, Tailwind v4, Biome, shadcn/ui — all pre-configured."
+    },
+    "s2": {
+      "tag": "Configure",
+      "title": "Fill in your .env.local",
+      "desc": "Copy",
+      "after": "and add your API keys. Every variable is documented."
+    },
+    "s3": {
+      "tag": "Customize",
+      "title": "Brand it in 30 seconds",
+      "desc": "Change your accent color in",
+      "after": "and everything updates. RTL flips with one attribute."
+    },
+    "s4": {
+      "tag": "Deploy",
+      "title": "Push to Vercel, go live",
+      "desc": "Run",
+      "after": "or connect your GitHub repo. Live in under 2 minutes."
+    }
+  },
+  "testi": {
+    "label": "06 — Testimonials",
+    "heading": "What builders are",
+    "italic": "saying."
+  },
+  "editions": {
+    "label": "03 — Editions",
+    "heading": "Choose the right",
+    "italic": "starting point.",
+    "sub": "ORAX is now structured into two clear editions: a polished free UI system and a real Pro SaaS foundation.",
+    "free": {
+      "name": "ORAX Free",
+      "badge": "UI System",
+      "desc": "A complete free interface system to explore the ORAX approach, design language, RTL support, and product structure.",
+      "cta": "Explore Free",
+      "note": "Best for evaluation, inspiration, and audience building."
+    },
+    "pro": {
+      "name": "ORAX Pro",
+      "badge": "Full SaaS System",
+      "desc": "The real SaaS foundation with authentication, protected routes, backend structure, and scalable architecture for actual products.",
+      "cta": "See Pro Direction",
+      "note": "Built for serious SaaS products and long-term system growth."
+    },
+    "feature": {
+      "ui": "Polished landing page",
+      "authUi": "Auth UI screens",
+      "dashboardUi": "Dashboard UI",
+      "settingsUi": "Settings UI",
+      "rtl": "Real RTL / Arabic support",
+      "design": "Design system foundation",
+      "authReal": "Real authentication",
+      "routes": "Protected routes",
+      "backend": "Backend integration",
+      "api": "API structure",
+      "db": "Database layer",
+      "arch": "Scalable SaaS architecture"
+    }
+  },
+  "features": {
+    "label": "02 — System Capabilities",
+    "heading": "Built as a system.",
+    "headingItalic": "Not stitched together.",
+    "link": "See the editions →"
+  },
+  "faq": {
+    "label": "04 — FAQ",
+    "heading": "Questions worth",
+    "italic": "answering.",
+    "sub": "The goal is clarity: what ORAX is, what it includes, and how Free and Pro are intentionally separated.",
+    "contact": "Need something more specific?",
+    "q1": "Is ORAX Free just a teaser?",
+    "a1": "No. ORAX Free is meant to feel complete from a UI and product experience perspective. It is designed to build trust, not to feel broken on purpose.",
+    "q2": "What is the actual difference between Free and Pro?",
+    "a2": "Free focuses on polished UI, landing, auth screens, dashboard views, settings screens, RTL support, and the design system. Pro is the real SaaS system layer with authentication, protected routes, API structure, database integration, and scalable architecture.",
+    "q3": "Does ORAX really support Arabic and RTL properly?",
+    "a3": "Yes. Arabic and RTL are part of the foundation, not an afterthought. Layout direction, spacing, typography, and interface behavior are considered as part of the system design.",
+    "q4": "Who is ORAX actually for?",
+    "a4": "It is built for serious developers and SaaS builders who need a bilingual foundation, real RTL credibility, and a codebase that can grow cleanly.",
+    "q5": "Is ORAX trying to be a generic starter for everyone?",
+    "a5": "No. ORAX is intentionally opinionated. Its value comes from focus: Arabic support, clean structure, and a more system-oriented way of building SaaS products.",
+    "q6": "Why split the product into Free and Pro?",
+    "a6": "Because mixing polished UI and real backend power into one unclear package creates confusion. The split keeps Free visually complete and Pro technically meaningful."
+  },
+  "cta": {
+    "label": "05 — Next Step",
+    "line1": "Start with clarity.",
+    "line2": "Then build with ORAX.",
+    "sub": "ORAX is being shaped as a serious SaaS system: clear in its Free edition, meaningful in its Pro direction, and opinionated where it should be.",
+    "btn1": "Explore ORAX Free",
+    "btn2": "Review the Pro direction",
+    "note": "Real RTL support · Bilingual foundation · Clean architecture mindset"
+  },
+  "footer": {
+    "tagline": "A serious SaaS starter system built for Arabic credibility, RTL support, and cleaner product foundations.",
+    "copy": "© 2026 ORAX · Built by",
+    "author": "Omar Mahmoud Ahmad",
+    "navigation": "Navigation",
+    "capabilities": "Capabilities",
+    "editions": "Editions",
+    "faq": "FAQ",
+    "nextStep": "Next Step",
+    "switchLang": "العربية",
+    "stackLabel": "Built with",
+    "social": "Social",
+    "x": "X",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
+  },
+  "auth": {
+    "login": {
+      "title": "Welcome back",
+      "subtitle": "Sign in to your ORAX account",
+      "email": "Email address",
+      "password": "Password",
+      "forgot": "Forgot password?",
+      "submit": "Sign in",
+      "or": "or continue with",
+      "noAccount": "Don't have an account?",
+      "register": "Get started"
+    },
+    "register": {
+      "title": "Create your account",
+      "subtitle": "Start shipping your SaaS today",
+      "name": "Full name",
+      "submit": "Create account",
+      "or": "or sign up with",
+      "hasAccount": "Already have an account?",
+      "signin": "Sign in",
+      "hint": "At least 8 characters",
+      "terms": "By creating an account, you agree to our",
+      "tos": "Terms of Service",
+      "and": "and",
+      "privacy": "Privacy Policy",
+      "headline1": "Ship your SaaS",
+      "headline2": "in days."
+    },
+    "forgot": {
+      "title": "Forgot your password?",
+      "subtitle": "Enter your email and we will send you a reset link.",
+      "submit": "Send reset link",
+      "success": "If this email exists, a reset link has been sent.",
+      "failed": "Something went wrong. Please try again.",
+      "back": "Back to sign in"
+    },
+    "reset": {
+      "title": "Set a new password",
+      "subtitle": "Choose a new password for your ORAX account.",
+      "submit": "Reset password",
+      "success": "Password updated successfully. Redirecting to sign in...",
+      "failed": "Unable to reset password. Try again.",
+      "invalidToken": "Invalid or missing reset token."
+    },
+    "perk1": "Full source code access",
+    "perk2": "RTL + Arabic support included",
+    "perk3": "Lifetime updates on Complete tier"
+  },
+  "dash": {
+    "heading": "Dashboard",
+    "welcome": "Welcome back, {name} 👋",
+    "revenue": "Total Revenue",
+    "users": "Active Users",
+    "mrr": "MRR",
+    "churn": "Churn Rate",
+    "dRevDelta": "+18% this month",
+    "dUsrDelta": "+24% this month",
+    "dMrrDelta": "+12% this month",
+    "dChuDelta": "-0.3% this month",
+    "chart": "Revenue Overview",
+    "recent": "Recent Customers",
+    "hCustomer": "Customer",
+    "hPlan": "Plan",
+    "hAmount": "Amount",
+    "hStatus": "Status",
+    "hDate": "Date",
+    "active": "Active",
+    "trial": "Trial",
+    "mar20": "Mar 20",
+    "mar19": "Mar 19",
+    "mar18": "Mar 18",
+    "mar17": "Mar 17",
+    "mar16": "Mar 16"
+  },
+  "settings": {
+    "heading": "Settings",
+    "sub": "Manage your account preferences",
+    "profile": "Profile",
+    "name": "Full Name",
+    "email": "Email Address",
+    "bio": "Bio",
+    "bioPh": "Tell us about yourself...",
+    "save": "Save Changes",
+    "saved": "✓ Saved!",
+    "prefs": "Preferences",
+    "theme": "Theme",
+    "themeDesc": "Dark",
+    "themeDescL": "Light",
+    "switchLight": "☀ Light",
+    "switchDark": "☾ Dark",
+    "lang": "Language",
+    "langEn": "English",
+    "langAr": "Arabic (عربي)",
+    "switchToAr": "Arabic (عربي)",
+    "danger": "Danger Zone",
+    "delete": "Delete Account",
+    "deleteDesc": "Permanently delete your account. This cannot be undone.",
+    "deleteBtn": "Delete Account",
+    "emailReadonly": "Email cannot be changed",
+    "deleteConfirmTitle": "Confirm account deletion",
+    "deleteConfirmText": "This action cannot be undone. All your data will be permanently deleted.",
+    "cancel": "Cancel",
+    "deleteConfirmBtn": "Yes, delete my account"
+  },
+  "billing": {
+    "heading": "Billing",
+    "sub": "Manage your subscription and invoices",
+    "current": "Current Plan",
+    "active": "Active",
+    "period": "one-time payment",
+    "upgrade": "Upgrade to Complete →",
+    "invoices": "Invoice History",
+    "hInvoice": "Invoice",
+    "hDate": "Date",
+    "hAmount": "Amount",
+    "hStatus": "Status",
+    "paid": "Paid",
+    "pdf": "PDF",
+    "update": "Update",
+    "inv1date": "Mar 1, 2026",
+    "inv2date": "Feb 1, 2026",
+    "f1": "Unlimited client projects",
+    "f2": "RTL/Arabic support",
+    "f3": "Auth system included",
+    "f4": "User Dashboard",
+    "f5": "Lifetime updates",
+    "planName": "Pro",
+    "cardExpires": "Expires 12/27"
+  }
+}

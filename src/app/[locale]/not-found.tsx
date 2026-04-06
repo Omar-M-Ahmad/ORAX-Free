@@ -1,19 +1,28 @@
 /**
- * @file src/app/not-found.tsx
- * @description Custom 404 page for ORAX.
+ * @file src/app/[locale]/not-found.tsx
+ * @description Locale-aware custom 404 page for ORAX.
  */
 
-"use client";
-
 import Link from "next/link";
-import { AlertTriangle, ArrowLeft, Home } from "lucide-react";
+import { cookies } from "next/headers";
+import { AlertTriangle, Home } from "lucide-react";
 
-import { useTheme } from "@/components/providers/theme-provider";
+import NotFoundBackButton from "@/components/ui/button";
 import { t } from "@/i18n";
 
-export default function NotFoundPage(): React.JSX.Element {
-  const { locale, mounted } = useTheme();
-  const l = mounted ? locale : "en";
+async function getPreferredLocale(): Promise<"en" | "ar"> {
+  const cookieStore = await cookies();
+  const savedLocale = cookieStore.get("orax-locale")?.value;
+
+  if (savedLocale === "ar" || savedLocale === "en") {
+    return savedLocale;
+  }
+
+  return "en";
+}
+
+export default async function NotFoundPage(): Promise<React.JSX.Element> {
+  const locale = await getPreferredLocale();
 
   return (
     <main
@@ -110,7 +119,7 @@ export default function NotFoundPage(): React.JSX.Element {
             marginBottom: 14,
           }}
         >
-          {t("notFound.title", l)}
+          {t("notFound.title", locale)}
         </h1>
 
         <p
@@ -122,7 +131,7 @@ export default function NotFoundPage(): React.JSX.Element {
             color: "var(--text-2)",
           }}
         >
-          {t("notFound.desc", l)}
+          {t("notFound.desc", locale)}
         </p>
 
         <div
@@ -133,19 +142,12 @@ export default function NotFoundPage(): React.JSX.Element {
             flexWrap: "wrap",
           }}
         >
-          <Link href="/" className="btn btn-glow">
+          <Link href={`/${locale}`} className="btn btn-glow">
             <Home size={16} />
-            {t("notFound.home", l)}
+            {t("notFound.home", locale)}
           </Link>
 
-          <button
-            type="button"
-            className="btn btn-ghost"
-            onClick={() => window.history.back()}
-          >
-            <ArrowLeft size={16} />
-            {t("notFound.back", l)}
-          </button>
+          <NotFoundBackButton label={t("notFound.back", locale)} />
         </div>
       </div>
     </main>

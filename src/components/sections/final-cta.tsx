@@ -4,12 +4,11 @@
  */
 "use client";
 
-import { useTheme } from "@/components/providers/theme-provider";
+import { useLocale } from "@/components/providers/locale-provider";
 import { t } from "@/i18n";
 
 export default function FinalCTA(): React.JSX.Element {
-  const { locale, mounted } = useTheme();
-  const l = mounted ? locale : "en";
+  const { locale: l } = useLocale();
 
   return (
     <section id="cta-final" className="cta-final-section">

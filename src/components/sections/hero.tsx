@@ -7,7 +7,7 @@
 "use client";
 
 import { useMemo } from "react";
-import { useTheme } from "@/components/providers/theme-provider";
+import { useLocale } from "@/components/providers/locale-provider";
 import { t } from "@/i18n";
 
 type HeroStat = {
@@ -18,8 +18,7 @@ type HeroStat = {
 };
 
 export default function HeroSection(): React.JSX.Element {
-  const { locale, mounted } = useTheme();
-  const l = mounted ? locale : "en";
+  const { locale: l } = useLocale();
   const isAr = l === "ar";
 
   return (

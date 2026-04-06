@@ -5,7 +5,7 @@
 "use client";
 
 import { useState } from "react";
-import { useTheme } from "@/components/providers/theme-provider";
+import { useLocale } from "@/components/providers/locale-provider";
 import { t, type TKey } from "@/i18n";
 
 const faqs: { q: TKey; a: TKey }[] = [
@@ -18,8 +18,8 @@ const faqs: { q: TKey; a: TKey }[] = [
 ];
 
 export default function FAQ(): React.JSX.Element {
-  const { locale, mounted } = useTheme();
-  const l = mounted ? locale : "en";
+  const { locale: l } = useLocale();
+
   const [open, setOpen] = useState<number | null>(0);
 
   return (

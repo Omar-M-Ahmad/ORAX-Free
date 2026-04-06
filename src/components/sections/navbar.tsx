@@ -10,8 +10,8 @@ import Link from "next/link";
 import { Moon, Sun, Menu, X, ExternalLink } from "lucide-react";
 
 import { useTheme } from "@/components/providers/theme-provider";
+import { useLocale } from "@/components/providers/locale-provider";
 import { t } from "@/i18n";
-import { siteConfig } from "@/config/site";
 
 const navLinks = [
   { tKey: "nav.features" as const, href: "#features" },
@@ -20,8 +20,15 @@ const navLinks = [
 ];
 
 export default function Navbar(): React.JSX.Element {
-  const { theme, locale, mounted, toggleTheme, toggleLocale } = useTheme();
-  const l = mounted ? locale : "en";
+  const { theme, mounted, toggleTheme } = useTheme();
+
+  const { locale, setLocale } = useLocale();
+  const l = locale;
+
+  const toggleLocale = () => {
+    const nextLocale = locale === "en" ? "ar" : "en";
+    setLocale(nextLocale);
+  };
 
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);

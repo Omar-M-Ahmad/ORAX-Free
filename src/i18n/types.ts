@@ -3,7 +3,7 @@
  * @description Shared i18n types for ORAX.
  */
 
-import type en from "@/messages/en.json";
+import type en from "./messages/en.json";
 
 export type Locale = "en" | "ar";
 export type MessagesShape = typeof en;
