@@ -6,7 +6,6 @@
 
 "use client";
 
-import { useMemo } from "react";
 import { useLocale } from "@/components/providers/locale-provider";
 import { t } from "@/i18n";
 
