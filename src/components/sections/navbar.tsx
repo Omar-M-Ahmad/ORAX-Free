@@ -20,7 +20,7 @@ const navLinks = [
 ];
 
 export default function Navbar(): React.JSX.Element {
-  const { theme, mounted, toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
 
   const { locale, setLocale } = useLocale();
   const l = locale;
