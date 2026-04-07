@@ -3,7 +3,7 @@
  * @description Proxy file for ORAX locale routes.
  */
 
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 
 const PUBLIC_FILE = /\.(.*)$/;
 const SUPPORTED_LOCALES = ["en", "ar"] as const;

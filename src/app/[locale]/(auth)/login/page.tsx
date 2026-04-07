@@ -8,11 +8,11 @@
 
 "use client";
 
-import { useState } from "react";
+import { ArrowRight, Eye, EyeOff, Zap } from "lucide-react";
 import Link from "next/link";
-import { Eye, EyeOff, Zap, ArrowRight } from "lucide-react";
-import { t } from "@/i18n";
+import { useState } from "react";
 import { useLocale } from "@/components/providers/locale-provider";
+import { t } from "@/i18n";
 
 const GitHubIcon = (): React.JSX.Element => (
   <svg
@@ -236,6 +236,7 @@ export default function LoginPage(): React.JSX.Element {
           <form style={{ display: "flex", flexDirection: "column", gap: 16 }}>
             <div>
               <label
+                htmlFor="login-email"
                 style={{
                   display: "block",
                   fontSize: 13,
@@ -247,6 +248,7 @@ export default function LoginPage(): React.JSX.Element {
                 {t("auth.login.email", l)}
               </label>
               <input
+                id="login-email"
                 name="email"
                 type="email"
                 placeholder="you@example.com"
@@ -264,6 +266,7 @@ export default function LoginPage(): React.JSX.Element {
                 }}
               >
                 <label
+                  htmlFor="login-password"
                   style={{
                     fontSize: 13,
                     fontWeight: 500,
@@ -287,6 +290,7 @@ export default function LoginPage(): React.JSX.Element {
 
               <div style={{ position: "relative" }}>
                 <input
+                  id="login-password"
                   name="password"
                   type={showPass ? "text" : "password"}
                   placeholder="••••••••"

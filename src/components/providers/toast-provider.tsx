@@ -5,6 +5,7 @@
 
 "use client";
 
+import { AlertTriangle, CheckCircle2, Info, X } from "lucide-react";
 import {
   createContext,
   useCallback,
@@ -13,7 +14,6 @@ import {
   useRef,
   useState,
 } from "react";
-import { CheckCircle2, Info, X, AlertTriangle } from "lucide-react";
 
 type ToastVariant = "info" | "success" | "warning";
 

@@ -5,9 +5,9 @@
 
 "use client";
 
+import { Activity, DollarSign, TrendingUp, Users } from "lucide-react";
 import { useLocale } from "@/components/providers/locale-provider";
 import { t } from "@/i18n";
-import { TrendingUp, Users, DollarSign, Activity } from "lucide-react";
 
 const barHeights = [38, 55, 42, 70, 52, 84, 63, 88, 58, 80, 72, 100];
 const months = [
@@ -207,7 +207,7 @@ export default function DashboardPage(): React.JSX.Element {
         >
           {barHeights.map((h, i) => (
             <div
-              key={i}
+              key={`bar-${i}-${h}`}
               style={{
                 flex: 1,
                 display: "flex",
@@ -304,7 +304,7 @@ export default function DashboardPage(): React.JSX.Element {
             <tbody>
               {rows.map((row, i) => (
                 <tr
-                  key={i}
+                  key={row.name}
                   style={{
                     borderBottom:
                       i < rows.length - 1 ? "1px solid var(--border)" : "none",

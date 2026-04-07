@@ -8,7 +8,7 @@
 
 import { Check } from "lucide-react";
 import { useLocale } from "@/components/providers/locale-provider";
-import { t, type TKey } from "@/i18n";
+import { type TKey, t } from "@/i18n";
 
 type EditionFeature = {
   key: TKey;

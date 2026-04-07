@@ -6,7 +6,7 @@
 
 import { useState } from "react";
 import { useLocale } from "@/components/providers/locale-provider";
-import { t, type TKey } from "@/i18n";
+import { type TKey, t } from "@/i18n";
 
 const faqs: { q: TKey; a: TKey }[] = [
   { q: "faq.q1", a: "faq.a1" },
@@ -54,7 +54,10 @@ export default function FAQ(): React.JSX.Element {
 
           <div className="faq-list">
             {faqs.map((item, i) => (
-              <div key={i} className={`faq-item${open === i ? " open" : ""}`}>
+              <div
+                key={item.q}
+                className={`faq-item${open === i ? " open" : ""}`}
+              >
                 <button
                   className="faq-question"
                   onClick={() => setOpen((prev) => (prev === i ? null : i))}

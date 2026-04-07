@@ -9,13 +9,6 @@
 import { useLocale } from "@/components/providers/locale-provider";
 import { t } from "@/i18n";
 
-type HeroStat = {
-  id: string;
-  value: string;
-  suffix: string;
-  label: string;
-};
-
 export default function HeroSection(): React.JSX.Element {
   const { locale: l } = useLocale();
   const isAr = l === "ar";

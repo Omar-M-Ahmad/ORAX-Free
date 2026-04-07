@@ -6,23 +6,23 @@
 
 "use client";
 
-import { useState } from "react";
+import {
+  Bell,
+  CreditCard,
+  LayoutDashboard,
+  Menu,
+  Moon,
+  Settings,
+  Sun,
+  X,
+  Zap,
+} from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import {
-  Zap,
-  LayoutDashboard,
-  Settings,
-  CreditCard,
-  Menu,
-  X,
-  Bell,
-  Sun,
-  Moon,
-} from "lucide-react";
+import { useState } from "react";
+import { useLocale } from "@/components/providers/locale-provider";
 import { useTheme } from "@/components/providers/theme-provider";
 import { t } from "@/i18n";
-import { useLocale } from "@/components/providers/locale-provider";
 
 const navItems = [
   { key: "dashboard" as const, icon: LayoutDashboard, href: "/dashboard" },
@@ -162,7 +162,7 @@ export default function DashboardLayout({
           >
             {navItems.map(({ key, icon: Icon, href }) => {
               const isActive =
-                pathname === href || pathname.startsWith(href + "/");
+                pathname === href || pathname.startsWith(`${href}/`);
               return (
                 <li key={key}>
                   <Link

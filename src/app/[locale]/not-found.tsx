@@ -3,9 +3,9 @@
  * @description Locale-aware custom 404 page for ORAX.
  */
 
-import Link from "next/link";
-import { cookies } from "next/headers";
 import { AlertTriangle, Home } from "lucide-react";
+import { cookies } from "next/headers";
+import Link from "next/link";
 
 import NotFoundBackButton from "@/components/ui/button";
 import { t } from "@/i18n";

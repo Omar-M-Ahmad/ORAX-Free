@@ -5,15 +5,15 @@
  * ScrollUI (progress bar + back-to-top) is only on landing page.
  */
 
-import Navbar from "@/components/sections/navbar";
-import ScrollUI from "@/components/shared/scroll-ui";
-import HeroSection from "@/components/sections/hero";
-import FeaturesBento from "@/components/sections/features-bento";
-import Pricing from "@/components/sections/pricing";
+import type { Metadata } from "next";
 import FAQ from "@/components/sections/faq";
+import FeaturesBento from "@/components/sections/features-bento";
 import FinalCTA from "@/components/sections/final-cta";
 import Footer from "@/components/sections/footer";
-import { Metadata } from "next";
+import HeroSection from "@/components/sections/hero";
+import Navbar from "@/components/sections/navbar";
+import Pricing from "@/components/sections/pricing";
+import ScrollUI from "@/components/shared/scroll-ui";
 
 export const metadata: Metadata = {
   title: "Home | ORAX",

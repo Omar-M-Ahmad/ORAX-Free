@@ -6,11 +6,11 @@
 
 "use client";
 
+import { AlertTriangle, Save, Trash2 } from "lucide-react";
 import { useState } from "react";
-import { useTheme } from "@/components/providers/theme-provider";
 import { useLocale } from "@/components/providers/locale-provider";
+import { useTheme } from "@/components/providers/theme-provider";
 import { t } from "@/i18n";
-import { Save, Trash2, AlertTriangle } from "lucide-react";
 
 export default function SettingsPage(): React.JSX.Element {
   const { theme, toggleTheme } = useTheme();
@@ -88,6 +88,7 @@ export default function SettingsPage(): React.JSX.Element {
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
           <div>
             <label
+              htmlFor="settings-name"
               style={{
                 display: "block",
                 fontSize: 13,
@@ -99,6 +100,7 @@ export default function SettingsPage(): React.JSX.Element {
               {t("settings.name", l)}
             </label>
             <input
+              id="settings-name"
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -108,6 +110,7 @@ export default function SettingsPage(): React.JSX.Element {
 
           <div>
             <label
+              htmlFor="settings-email"
               style={{
                 display: "block",
                 fontSize: 13,
@@ -119,6 +122,7 @@ export default function SettingsPage(): React.JSX.Element {
               {t("settings.email", l)}
             </label>
             <input
+              id="settings-email"
               type="email"
               value={email}
               readOnly
@@ -135,6 +139,7 @@ export default function SettingsPage(): React.JSX.Element {
 
           <div>
             <label
+              htmlFor="settings-bio"
               style={{
                 display: "block",
                 fontSize: 13,
@@ -146,6 +151,7 @@ export default function SettingsPage(): React.JSX.Element {
               {t("settings.bio", l)}
             </label>
             <textarea
+              id="settings-bio"
               placeholder={t("settings.bioPh", l)}
               value={bio}
               onChange={(e) => setBio(e.target.value)}

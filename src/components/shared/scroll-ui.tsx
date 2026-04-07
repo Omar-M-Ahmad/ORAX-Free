@@ -11,16 +11,14 @@
 
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
-import { usePathname } from "next/navigation";
 import { ArrowUp } from "lucide-react";
+import { useCallback, useEffect, useState } from "react";
 
 export default function ScrollUI(): React.JSX.Element {
   const [progress, setProgress] = useState(0);
   const [showTopBtn, setShowTopBtn] = useState(false);
   const [topBtnHover, setTopBtnHover] = useState(false);
   const [isRTL, setIsRTL] = useState(false);
-  const pathname = usePathname();
 
   /* ── Track scroll progress with RAF for smoother updates ── */
   useEffect(() => {
@@ -56,7 +54,7 @@ export default function ScrollUI(): React.JSX.Element {
       window.cancelAnimationFrame(frameId);
       observer.disconnect();
     };
-  }, [pathname]);
+  }, []);
 
   /* ── Smooth scroll for navbar anchors ── */
   useEffect(() => {
@@ -81,7 +79,7 @@ export default function ScrollUI(): React.JSX.Element {
 
     document.addEventListener("click", handleClick);
     return () => document.removeEventListener("click", handleClick);
-  }, [pathname]);
+  }, []);
 
   /* ── Scroll to top ── */
   const scrollToTop = useCallback((): void => {
