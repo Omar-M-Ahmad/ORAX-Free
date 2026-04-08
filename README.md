@@ -1,189 +1,148 @@
-# ORAX-Free
+<div align="center">
 
-ORAX-Free is the public free edition of ORAX — a premium Next.js landing page starter built for modern SaaS websites.
+# ORAX Free
+### Build your SaaS presence fast — with a polished bilingual UI (EN/AR) and first-class RTL support.
 
-It focuses on the public-facing experience only:
+[![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19-149eca?logo=react&logoColor=white)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![License](https://img.shields.io/badge/License-Custom-7c5cff)](#license)
 
-- premium landing page UI
-- dark / light theme
-- Arabic / English support
-- RTL / LTR support
-- polished interactions
-- clean project structure
+**Live Demo:** https://orax-free.vercel.app/
 
-This version is intended for developers who want a beautiful bilingual landing page foundation without authentication, dashboard, billing, or backend complexity.
-
----
-
-## 🚀 Live Demo
-
-👉 https://orax-free.vercel.app/
+</div>
 
 ---
 
-## 💡 About ORAX-Free
+## ✨ Why ORAX Free?
 
-ORAX-Free is the public landing page version of ORAX.
+ORAX Free is not a throwaway demo. It is a **production-style frontend foundation** for modern SaaS products with a premium look, smooth interactions, and a clear structure that is easy to scale.
 
-It is designed to showcase the UI system, RTL support, and overall structure — without backend complexity.
-
-If you need authentication, payments, or full SaaS features, check the paid editions.
+If your audience includes Arabic speakers, this starter gives you a serious head start with **real RTL/LTR behavior** and bilingual content flow.
 
 ---
 
-## Features
+## 🖼️ Preview
 
-- Next.js 16
-- TypeScript
-- Modern Next.js SaaS Landing Template
-- Dark / Light mode
-- Arabic / English translations
-- RTL / LTR support
-- Responsive layout
-- Custom 404 page
-- Scroll progress UI
-- Toast feedback for demo links
-- Clean reusable sections
+![ORAX Free Preview](public/og-image.png)
 
 ---
 
-## ✅ Included in ORAX-Free
+## 🚀 What you get
 
-- Landing page (Hero, Features, Pricing, FAQ)
-- Dark / Light mode
-- Arabic / English support (RTL ready)
-- Responsive layout
-- Toast system
-- Custom 404 page
-- Design system tokens
-
-## ❌ Not Included
-
-- Authentication system
-- Dashboard
-- Payments integration
-- Database
-- Email system
-- API routes
+- 🎯 Premium marketing landing experience (Hero, Features, Pricing, FAQ, Final CTA)
+- 🌗 Dark / Light theme toggle
+- 🌍 Bilingual UX (English + Arabic)
+- ↔️ RTL / LTR support
+- 🔐 Auth UI screens (Login, Register, Forgot Password, Reset Password)
+- 📊 Dashboard UI screens (Dashboard, Billing, Settings)
+- 🧩 Reusable UI sections and provider architecture
+- 🧭 Locale-aware routing
+- 📱 Responsive layout system
+- 🧼 Clean codebase with Biome formatting/linting
 
 ---
 
-## Tech Stack
+## 🧱 Tech Stack
 
-- Next.js 16
-- React
-- TypeScript
-- Tailwind CSS
-- Lucide React
-- GSAP
-- Framer Motion
+- **Framework:** Next.js 16 (App Router)
+- **UI:** React 19
+- **Language:** TypeScript 5
+- **Animation / Motion:** GSAP + Framer Motion
+- **Styling:** Global CSS architecture + design tokens
+- **Icons:** Lucide React
+- **Tooling:** Biome
 
 ---
 
-## Project Structure
+## 📂 Project Structure
 
-```txt
+```text
 src/
-  app/
-    globals.css
-    layout.tsx
-    page.tsx
-    not-found.tsx
-
-  components/
-    providers/
-      theme-provider.tsx
-      toast-provider.tsx
-    sections/
-      navbar.tsx
-      hero.tsx
-      logos-ticker.tsx
-      features-bento.tsx
-      how-it-works.tsx
-      pricing.tsx
-      faq.tsx
-      cta.tsx
-      footer.tsx
-    shared/
-      custom-cursor.tsx
-      scroll-ui.tsx
-      demo-toast-link.tsx
-
-  config/
-    site.ts
-
-  i18n/
-    index.ts
-    routing.ts
-    types.ts
-
-  messages/
-    en.json
-    ar.json
+├─ app/[locale]/
+│  ├─ page.tsx                    # Landing page
+│  ├─ layout.tsx                  # Locale-aware app layout
+│  ├─ not-found.tsx               # Localized 404
+│  ├─ (auth)/                     # Auth UI pages
+│  │  ├─ login/page.tsx
+│  │  ├─ register/page.tsx
+│  │  ├─ forgot-password/page.tsx
+│  │  └─ reset-password/page.tsx
+│  └─ (dashboard)/                # Dashboard UI pages
+│     ├─ layout.tsx
+│     ├─ dashboard/page.tsx
+│     ├─ billing/page.tsx
+│     └─ settings/page.tsx
+├─ components/
+│  ├─ sections/                   # Landing sections
+│  ├─ providers/                  # Theme / Locale / Toast providers
+│  └─ shared/                     # Shared helpers/components
+├─ i18n/
+│  ├─ index.ts
+│  ├─ routing.ts
+│  ├─ types.ts
+│  └─ messages/
+│     ├─ en.json
+│     └─ ar.json
+└─ config/
+   └─ site.ts
 ```
 
 ---
 
-## Getting Started
+## ⚡ Quick Start
 
-Install dependencies
-
-```bach
+```bash
 pnpm install
-```
-
-Run the development server:
-
-```bach
 pnpm dev
 ```
 
-The open:
+Open: `http://localhost:3000`
 
-```bach
-http://localhost:3000
+Build for production:
+
+```bash
+pnpm build
+pnpm start
+```
+
+Lint:
+
+```bash
+pnpm lint
 ```
 
 ---
 
-## Customization
+## 🎛️ Customization Guide
 
-You can customize ORAX-Free from these places:
-
-- `src/config/site.ts` → site name, description, pricing values
-- `src/messages/en.json` → English text
-- `src/messages/ar.json` → Arabic text
-- `src/app/globals.css` → colors, tokens, spacing, global styles
-- `src/components/sections/*` → landing page sections
+- `src/config/site.ts` → brand/site metadata and shared config
+- `src/i18n/messages/en.json` → English copy
+- `src/i18n/messages/ar.json` → Arabic copy
+- `src/app/styles/**` → design tokens, foundations, and section styling
+- `src/components/sections/**` → landing section content and layout
 
 ---
 
-## Use Cases
+## ✅ Best for
 
-ORAX-Free is suitable for:
-
-- SaaS landing pages
-- product showcase websites
-- startup marketing pages
-- bilingual public websites
-- Arabic-first landing pages
+- SaaS founders validating a product idea quickly
+- Teams needing a polished bilingual marketing site
+- Developers building Arabic-first startup websites
+- Agencies that want a strong frontend base before backend integration
 
 ---
 
-## 🧭 Upgrade Path
+## 🧭 Notes
 
-ORAX is structured into 3 editions:
-
-- Free → Landing UI only
-- Starter → Auth + Dashboard
-- Complete → Payments + Full SaaS system
-
-Coming soon.
+ORAX Free includes rich **frontend UI flows** for auth and dashboard pages.
+It does **not** ship with backend logic (database/auth provider/payments API) by default.
 
 ---
 
-## License
+## 📄 License
 
-ORAX-Free is intended for learning, personal projects, and public demo usage.
+ORAX Free is provided for learning, personal work, and showcasing.
+Commercial redistribution as a competing template package is not allowed.
 
-Commercial redistribution of this free version as a competing template package is not allowed.
+If you want licensing flexibility for commercial packaging, contact the ORAX team.
