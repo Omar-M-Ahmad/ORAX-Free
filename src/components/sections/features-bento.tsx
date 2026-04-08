@@ -6,7 +6,7 @@
 "use client";
 
 import { useLocale } from "@/components/providers/locale-provider";
-import { t, type TKey } from "@/i18n";
+import { type TKey, t } from "@/i18n";
 
 type Card = {
   id: string;

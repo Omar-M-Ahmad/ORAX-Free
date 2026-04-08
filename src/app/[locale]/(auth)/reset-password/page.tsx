@@ -5,11 +5,11 @@
 
 "use client";
 
-import { useState } from "react";
+import { CheckCircle2, Eye, EyeOff } from "lucide-react";
 import Link from "next/link";
-import { Eye, EyeOff, CheckCircle2 } from "lucide-react";
-import { t } from "@/i18n";
+import { useState } from "react";
 import { useLocale } from "@/components/providers/locale-provider";
+import { t } from "@/i18n";
 
 export default function ResetPasswordPage(): React.JSX.Element {
   const { locale: l } = useLocale();
@@ -94,6 +94,7 @@ export default function ResetPasswordPage(): React.JSX.Element {
           >
             <div>
               <label
+                htmlFor="reset-password"
                 style={{
                   display: "block",
                   fontSize: 13,
@@ -107,6 +108,7 @@ export default function ResetPasswordPage(): React.JSX.Element {
 
               <div style={{ position: "relative" }}>
                 <input
+                  id="reset-password"
                   type={showPass ? "text" : "password"}
                   required
                   minLength={8}

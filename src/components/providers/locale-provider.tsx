@@ -10,8 +10,8 @@
 
 "use client";
 
-import { createContext, useContext, useMemo } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import { createContext, useContext, useMemo } from "react";
 
 export type Locale = "en" | "ar";
 

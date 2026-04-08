@@ -5,8 +5,8 @@
 
 "use client";
 
-import { useToast } from "@/components/providers/toast-provider";
 import { useLocale } from "@/components/providers/locale-provider";
+import { useToast } from "@/components/providers/toast-provider";
 import { t } from "@/i18n";
 
 export default function DemoToastLink({

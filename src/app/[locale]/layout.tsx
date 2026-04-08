@@ -5,9 +5,8 @@
 
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Cairo } from "next/font/google";
-
-import { ThemeProvider } from "@/components/providers/theme-provider";
 import { LocaleProvider } from "@/components/providers/locale-provider";
+import { ThemeProvider } from "@/components/providers/theme-provider";
 import { siteConfig } from "@/config/site";
 import "@/app/styles/globals.css";
 

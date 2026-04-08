@@ -5,12 +5,11 @@
 
 "use client";
 
-import { useEffect, useState } from "react";
+import { ExternalLink, Menu, Moon, Sun, X } from "lucide-react";
 import Link from "next/link";
-import { Moon, Sun, Menu, X, ExternalLink } from "lucide-react";
-
-import { useTheme } from "@/components/providers/theme-provider";
+import { useEffect, useState } from "react";
 import { useLocale } from "@/components/providers/locale-provider";
+import { useTheme } from "@/components/providers/theme-provider";
 import { t } from "@/i18n";
 
 const navLinks = [
@@ -51,7 +50,7 @@ export default function Navbar(): React.JSX.Element {
           ORAX
         </Link>
 
-        <ul className="nav-links" role="list">
+        <ul className="nav-links">
           {navLinks.map(({ tKey, href }) => (
             <li key={tKey}>
               <a href={href}>{t(tKey, l)}</a>

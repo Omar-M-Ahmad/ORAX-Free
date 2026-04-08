@@ -4,13 +4,13 @@
  */
 "use client";
 
-import Link from "next/link";
 import { Zap } from "lucide-react";
+import Link from "next/link";
 
 import { useLocale } from "@/components/providers/locale-provider";
+import { SocialIcons } from "@/components/shared/icons";
 import { siteConfig } from "@/config/site";
 import { t } from "@/i18n";
-import { SocialIcons } from "@/components/shared/icons";
 
 const navLinks = [
   { key: "footer.capabilities" as const, href: "#features" },

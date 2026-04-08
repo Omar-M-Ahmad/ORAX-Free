@@ -6,8 +6,8 @@
 "use client";
 
 import { CreditCard, Download, Zap } from "lucide-react";
-import { t } from "@/i18n";
 import { useLocale } from "@/components/providers/locale-provider";
+import { t } from "@/i18n";
 
 const planFeatureKeys = [
   "billing.f1",
@@ -265,7 +265,7 @@ export default function BillingPage(): React.JSX.Element {
                 ] as const
               ).map((h, i) => (
                 <th
-                  key={i}
+                  key={h || `empty-${i}`}
                   style={{
                     padding: "12px 24px",
                     textAlign: "start",

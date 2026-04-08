@@ -5,11 +5,11 @@
 
 "use client";
 
-import { useState } from "react";
+import { ArrowRight, CheckCircle2, Mail } from "lucide-react";
 import Link from "next/link";
-import { Mail, ArrowRight, CheckCircle2 } from "lucide-react";
-import { t } from "@/i18n";
+import { useState } from "react";
 import { useLocale } from "@/components/providers/locale-provider";
+import { t } from "@/i18n";
 
 export default function ForgotPasswordPage(): React.JSX.Element {
   const { locale: l } = useLocale();
@@ -93,6 +93,7 @@ export default function ForgotPasswordPage(): React.JSX.Element {
           >
             <div>
               <label
+                htmlFor="forgot-email"
                 style={{
                   display: "block",
                   fontSize: 13,
@@ -116,6 +117,7 @@ export default function ForgotPasswordPage(): React.JSX.Element {
                   }}
                 />
                 <input
+                  id="forgot-email"
                   type="email"
                   required
                   value={email}
