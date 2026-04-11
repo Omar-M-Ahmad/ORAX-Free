@@ -43,11 +43,16 @@ export default function FinalCTA(): React.JSX.Element {
           <p className="cta-final-sub">{t("cta.sub", l)}</p>
 
           <div className="cta-final-actions">
-            <a href="#features" className="btn btn-glow btn-lg">
+            <a href="#pricing" className="btn btn-glow btn-lg">
               {t("cta.btn1", l)}
             </a>
 
-            <a href="#pricing" className="btn btn-ghost btn-lg">
+            <a
+              href="https://omartech.gumroad.com/l/orax-pro"
+              className="btn btn-ghost btn-lg"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {t("cta.btn2", l)}
             </a>
           </div>

@@ -8,6 +8,7 @@
 
 import { useLocale } from "@/components/providers/locale-provider";
 import { t } from "@/i18n";
+import ProUpgradePill from "./pro-upgrade-pill";
 
 export default function HeroSection(): React.JSX.Element {
   const { locale: l } = useLocale();
@@ -28,6 +29,8 @@ export default function HeroSection(): React.JSX.Element {
           <span className="hero-badge-dot" aria-hidden="true" />
           <span>{t("hero.badge", l)}</span>
         </div>
+
+        <ProUpgradePill />
 
         <h1
           className="hero-title"
@@ -68,7 +71,12 @@ export default function HeroSection(): React.JSX.Element {
         <p className="hero-sub">{t("hero.sub", l)}</p>
 
         <div className="hero-cta">
-          <a href="#features" className="btn btn-glow btn-lg">
+          <a
+            href="https://omartech.gumroad.com/l/orax-free"
+            className="btn btn-glow btn-lg"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {t("hero.cta1", l)}
           </a>
 

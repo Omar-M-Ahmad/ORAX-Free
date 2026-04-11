@@ -117,11 +117,17 @@ export default function Pricing(): React.JSX.Element {
                 <p className="edition-note">{t(edition.noteKey, l)}</p>
 
                 <a
-                  href={edition.id === "free" ? "#features" : "#cta-final"}
+                  href={
+                    edition.id === "free"
+                      ? "https://omartech.gumroad.com/l/orax-free"
+                      : "https://omartech.gumroad.com/l/orax-pro"
+                  }
                   className={`btn ${
                     edition.featured ? "btn-glow" : "btn-ghost"
                   }`}
                   style={{ width: "100%", justifyContent: "center" }}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   {t(edition.ctaKey, l)}
                 </a>
