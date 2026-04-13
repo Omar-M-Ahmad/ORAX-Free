@@ -47,6 +47,8 @@ export const metadata: Metadata = {
   authors: [{ name: "Omar Mahmoud Ahmad" }],
   creator: "Omar Mahmoud Ahmad",
 
+  verification: siteConfig.verification,
+
   openGraph: {
     type: "website",
     locale: "en_US",

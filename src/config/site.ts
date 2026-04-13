@@ -8,8 +8,11 @@ export const siteConfig = {
   title: "ORAX - Arabic Ready SaaS Starter System",
   description:
     "ORAX is a modern SaaS starter system with real RTL support, bilingual foundation (Arabic + English), and clean architecture.for building scalable products.",
-  url: "http://localhost:3000/", // "https://orax-free.vercel.app",
+  url: "https://orax-free.vercel.app",
   ogImage: "/og-image.png",
+  verification: {
+    google: "HqQWldPFF6RxRxdNfAKpn-HKSfwA-p0eYJEi72OgVZk",
+  },
   links: {
     twitter: "https://x.com/omar_m_ahmad",
     linkedin: "https://www.linkedin.com/in/omar-mahmoud-ahmad",
